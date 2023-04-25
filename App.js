@@ -11,7 +11,25 @@ const Drawer = createDrawerNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName={NAVIGATIONS.HOME_NAVIGATOR.name}>
+      <Drawer.Navigator
+        initialRouteName={NAVIGATIONS.HOME_NAVIGATOR.name}
+        screenOptions={{
+          headerTitle: 'Naam Bazaar',
+          headerTitleAlign: 'center',
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: '#2196F3'},
+          headerTitleStyle: {
+            // color: 'white',
+            // backgroundColor: '#2196F3',
+            // paddingHorizontal: 15,
+            // paddingVertical: 10,
+            // borderRadius: 8,
+            fontStyle: 'italic',
+          },
+          drawerActiveTintColor: 'white',
+          drawerActiveBackgroundColor: '#2196F3',
+          // swipeEnabled: true,
+        }}>
         <Drawer.Screen
           name={NAVIGATIONS.HOME_NAVIGATOR.name}
           component={HomeNavigator}
@@ -20,17 +38,17 @@ function App() {
         <Drawer.Screen
           name={NAVIGATIONS.SUBSCRIPTION_DETIALS.name}
           component={SubscriptionDetails}
-          // options={{ drawerLabel: 'Updates' }}
+          options={{drawerLabel: 'Subscription Details'}}
         />
         <Drawer.Screen
           name={NAVIGATIONS.DIRECT_CONTACT.name}
           component={DirectContact}
-          // options={{ drawerLabel: 'Profile' }}
+          options={{drawerLabel: 'Direct Contact'}}
         />
         <Drawer.Screen
           name={NAVIGATIONS.PRIVACY_POLICY.name}
           component={PrivacyPolicy}
-          // options={{ drawerLabel: 'Profile' }}
+          options={{drawerLabel: 'Privacy Policy'}}
         />
       </Drawer.Navigator>
     </NavigationContainer>
