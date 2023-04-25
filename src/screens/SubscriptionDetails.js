@@ -1,10 +1,11 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
+import CustomText from '../components/common/CustomText';
 
 export default function SubscriptionDetails() {
   return (
     <View>
-      <Text>SubscriptionDetails</Text>
+      <CustomText text="subscription details" />
     </View>
   );
 }
