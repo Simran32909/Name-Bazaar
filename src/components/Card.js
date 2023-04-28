@@ -14,11 +14,11 @@ export default function Card({imgSrc, title, navigatePath}) {
         <Image
           source={imgSrc}
           style={{
-            width: 100,
-            height: 100,
+            width: 65,
+            height: 65,
           }}
         />
-        <CustomText text={title} size={30} />
+        <CustomText text={title} size={20} />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -27,13 +27,17 @@ export default function Card({imgSrc, title, navigatePath}) {
 const styles = StyleSheet.create({
   container: {},
   cardContainer: {
-    height: 200,
-    width: 200,
+    // height: 200,
+    // width: '90%',
+    // backgroundColor: '#2196F3',
+    flexDirection: 'row',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     borderRadius: 7,
-    justifyContent: 'center',
+    paddingVertical: 7,
+    paddingHorizontal: 10,
+    // justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: 15,
   },
 });

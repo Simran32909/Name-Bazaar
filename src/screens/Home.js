@@ -12,12 +12,19 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.cardContainer}>
-          <Card imgSrc={icons.boy} title="Boy" />
-          <Card imgSrc={icons.girl} title="Girl" />
-        </View>
-        <View style={styles.btnContainer}>
+      {/* <View style={{flex: 1, backgroundColor: 'yellow'}}> */}
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        style={{flex: 1, marginVertical: 20}}>
+        {/* <View style={styles.cardContainer}> */}
+        <Card imgSrc={icons.boy} title="Boy" />
+        <Card imgSrc={icons.girl} title="Girl" />
+        <Card imgSrc={icons.shop} title="Shop" />
+        <Card imgSrc={icons.school} title="School" />
+        <Card imgSrc={icons.factory} title="Factory" />
+        <Card imgSrc={icons.company} title="Company" />
+        {/* </View> */}
+        {/* <View style={styles.btnContainer}>
           <CustomText text="Get unique names for:" size={22} />
           <View style={styles.btnGridView}>
             <CustomButton text="BOYS" />
@@ -27,8 +34,9 @@ export default function Home() {
             <CustomButton text="FACTORY" />
             <CustomButton text="COMPANY" />
           </View>
-        </View>
+        </View> */}
       </ScrollView>
+      {/* </View> */}
     </SafeAreaView>
   );
 }
@@ -36,27 +44,26 @@ export default function Home() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'white',
     paddingHorizontal: 10,
-    // paddingVertical: 40,
+    backgroundColor: 'white',
   },
-  container: {
-    rowGap: 25,
-    marginTop: 40,
-  },
-  cardContainer: {
-    alignItems: 'center',
+  scrollContainer: {
+    flexGrow: 1,
+    // rowGap: 25,
     rowGap: 15,
+    paddingBottom: 10,
   },
-  btnContainer: {
-    // backgroundColor: 'green',
-    rowGap: 10,
-  },
-  btnGridView: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    columnGap: 5,
-    rowGap: 5,
-  },
+  // cardContainer: {
+  //   alignItems: 'center',
+  // },
+  // btnContainer: {
+  //   rowGap: 10,
+  // },
+  // btnGridView: {
+  //   display: 'flex',
+  //   flexDirection: 'row',
+  //   flexWrap: 'wrap',
+  //   columnGap: 5,
+  //   rowGap: 5,
+  // },
 });
