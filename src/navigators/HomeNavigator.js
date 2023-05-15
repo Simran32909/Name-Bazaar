@@ -3,6 +3,7 @@ import Home from '../screens/Home';
 import NAVIGATIONS from '../constants/navigationConstants';
 import AlphabetList from '../screens/AlphabetList';
 import NamesList from '../screens/NamesList';
+import NameMeaning from '../screens/NameMeaning';
 
 const Stack = createStackNavigator();
 
@@ -15,6 +16,10 @@ function HomeNavigator() {
         component={AlphabetList}
       />
       <Stack.Screen name={NAVIGATIONS.NAMES_LIST.name} component={NamesList} />
+      <Stack.Screen
+        name={NAVIGATIONS.NAMES_MEANING.name}
+        component={NameMeaning}
+      />
     </Stack.Navigator>
   );
 }

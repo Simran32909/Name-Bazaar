@@ -5,9 +5,14 @@ import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
 
 export default function NameTile({data}) {
+  const navigation = useNavigation();
   const name = data.name;
+
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback
+      onPress={() =>
+        navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {data: data})
+      }>
       <View style={styles.container}>
         <CustomText text={name} size={40} fontColor="white" />
       </View>

@@ -13,6 +13,9 @@ const NAVIGATIONS = {
   NAMES_LIST: {
     name: 'nameslist',
   },
+  NAMES_MEANING: {
+    name: 'namesmeaning',
+  },
   SUBSCRIPTION_DETIALS: {
     name: 'subscriptiondetials',
   },
