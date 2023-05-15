@@ -7,6 +7,12 @@ const NAVIGATIONS = {
     name: 'home',
     // title: 'Home',
   },
+  ALPHABET_LIST: {
+    name: 'alphabetlist',
+  },
+  NAMES_LIST: {
+    name: 'nameslist',
+  },
   SUBSCRIPTION_DETIALS: {
     name: 'subscriptiondetials',
   },
