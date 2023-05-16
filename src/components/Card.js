@@ -19,7 +19,7 @@ export default function Card({imgSrc, title, navigatePath}) {
             height: 65,
           }}
         />
-        <CustomText text={title} size={20} />
+        <CustomText text={title} size={20} fontColor="white" />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     // height: 200,
     // width: '90%',
-    // backgroundColor: '#2196F3',
+    backgroundColor: '#2196F3',
     flexDirection: 'row',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
