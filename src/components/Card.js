@@ -28,8 +28,6 @@ export default function Card({imgSrc, title, navigatePath}) {
 const styles = StyleSheet.create({
   container: {},
   cardContainer: {
-    // height: 200,
-    // width: '90%',
     backgroundColor: '#2196F3',
     flexDirection: 'row',
     borderWidth: StyleSheet.hairlineWidth,
@@ -37,7 +35,6 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     paddingVertical: 7,
     paddingHorizontal: 10,
-    // justifyContent: 'center',
     alignItems: 'center',
     gap: 15,
   },
