@@ -1,17 +1,17 @@
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createStackNavigator} from '@react-navigation/stack';
 import NAVIGATIONS from './src/constants/navigationConstants';
-import SubscriptionDetails from './src/screens/SubscriptionDetails';
-import DirectContact from './src/screens/DirectContact';
-import PrivacyPolicy from './src/screens/PrivacyPolicy';
 import HomeNavigator from './src/navigators/HomeNavigator';
 import {NavigationContainer} from '@react-navigation/native';
+import AlphabetList from './src/screens/AlphabetList';
+import NamesList from './src/screens/NamesList';
+import NameMeaning from './src/screens/NameMeaning';
 
-const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
+      <Stack.Navigator
         initialRouteName={NAVIGATIONS.HOME_NAVIGATOR.name}
         screenOptions={{
           headerTitle: 'Naam Bazaar',
@@ -19,38 +19,27 @@ function App() {
           headerTintColor: 'white',
           headerStyle: {backgroundColor: '#2196F3'},
           headerTitleStyle: {
-            // color: 'white',
-            // backgroundColor: '#2196F3',
-            // paddingHorizontal: 15,
-            // paddingVertical: 10,
-            // borderRadius: 8,
             fontStyle: 'italic',
           },
-          drawerActiveTintColor: 'white',
-          drawerActiveBackgroundColor: '#2196F3',
-          // swipeEnabled: true,
         }}>
-        <Drawer.Screen
+        <Stack.Screen
           name={NAVIGATIONS.HOME_NAVIGATOR.name}
           component={HomeNavigator}
-          options={{drawerLabel: 'Home'}}
+          options={{headerShown: false}}
         />
-        <Drawer.Screen
-          name={NAVIGATIONS.SUBSCRIPTION_DETIALS.name}
-          component={SubscriptionDetails}
-          options={{drawerLabel: 'Subscription Details'}}
+        <Stack.Screen
+          name={NAVIGATIONS.ALPHABET_LIST.name}
+          component={AlphabetList}
         />
-        <Drawer.Screen
-          name={NAVIGATIONS.DIRECT_CONTACT.name}
-          component={DirectContact}
-          options={{drawerLabel: 'Direct Contact'}}
+        <Stack.Screen
+          name={NAVIGATIONS.NAMES_LIST.name}
+          component={NamesList}
         />
-        <Drawer.Screen
-          name={NAVIGATIONS.PRIVACY_POLICY.name}
-          component={PrivacyPolicy}
-          options={{drawerLabel: 'Privacy Policy'}}
+        <Stack.Screen
+          name={NAVIGATIONS.NAMES_MEANING.name}
+          component={NameMeaning}
         />
-      </Drawer.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

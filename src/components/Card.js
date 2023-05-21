@@ -2,13 +2,16 @@ import {View, StyleSheet, Image, TouchableWithoutFeedback} from 'react-native';
 import React from 'react';
 import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
+import NAVIGATIONS from '../constants/navigationConstants';
 
-export default function Card({imgSrc, title, navigatePath}) {
+export default function Card({imgSrc, title}) {
   const navigation = useNavigation();
 
   return (
     <TouchableWithoutFeedback
-      onPress={() => navigation.navigate('test')}
+      onPress={() =>
+        navigation.navigate(NAVIGATIONS.ALPHABET_LIST.name, {selection: title})
+      }
       style={styles.container}>
       <View style={styles.cardContainer}>
         <Image
@@ -18,7 +21,7 @@ export default function Card({imgSrc, title, navigatePath}) {
             height: 65,
           }}
         />
-        <CustomText text={title} size={20} />
+        <CustomText text={title} size={20} fontColor="white" />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -27,16 +30,13 @@ export default function Card({imgSrc, title, navigatePath}) {
 const styles = StyleSheet.create({
   container: {},
   cardContainer: {
-    // height: 200,
-    // width: '90%',
-    // backgroundColor: '#2196F3',
+    backgroundColor: '#2196F3',
     flexDirection: 'row',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     borderRadius: 7,
     paddingVertical: 7,
     paddingHorizontal: 10,
-    // justifyContent: 'center',
     alignItems: 'center',
     gap: 15,
   },
