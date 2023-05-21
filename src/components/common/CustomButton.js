@@ -9,10 +9,11 @@ export default function CustomButton({
   textSize,
   fontWeight,
   btnColor,
+  style,
 }) {
   return (
     <Pressable
-      style={[styles.btn, {backgroundColor: btnColor}]}
+      style={[styles.btn, {backgroundColor: btnColor}, {...style}]}
       onPress={handlePress}>
       <CustomText
         text={text}
@@ -32,6 +33,7 @@ CustomButton.propTypes = {
   textSize: PropTypes.number,
   fontWeight: PropTypes.number,
   btnColor: PropTypes.string,
+  style: PropTypes.object,
 };
 
 CustomButton.defaultProps = {
@@ -41,11 +43,12 @@ CustomButton.defaultProps = {
   textSize: 16,
   fontWeight: 400,
   btnColor: '#2196F3',
+  style: {},
 };
 
 const styles = StyleSheet.create({
   btn: {
-    alignSelf: 'flex-start',
+    // alignSelf: 'flex-start',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 8,

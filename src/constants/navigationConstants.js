@@ -1,4 +1,7 @@
 const NAVIGATIONS = {
+  LANGUAGE_SELECT: {
+    name: 'languageselect',
+  },
   HOME_NAVIGATOR: {
     name: 'homenavigator',
     // title: 'Home Navigator',
