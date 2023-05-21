@@ -4,12 +4,14 @@ import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
 
-export default function Card({imgSrc, title, navigatePath}) {
+export default function Card({imgSrc, title}) {
   const navigation = useNavigation();
 
   return (
     <TouchableWithoutFeedback
-      onPress={() => navigation.navigate(NAVIGATIONS.ALPHABET_LIST.name)}
+      onPress={() =>
+        navigation.navigate(NAVIGATIONS.ALPHABET_LIST.name, {selection: title})
+      }
       style={styles.container}>
       <View style={styles.cardContainer}>
         <Image

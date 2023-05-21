@@ -4,17 +4,18 @@ import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
 
-export default function AlphabetTile({title, firstLetter}) {
+export default function AlphabetTile({text, data}) {
   const navigation = useNavigation();
+  console.log(data);
   return (
     <TouchableWithoutFeedback
       onPress={() =>
         navigation.navigate(NAVIGATIONS.NAMES_LIST.name, {
-          firstLetter: firstLetter,
+          names: data,
         })
       }>
       <View style={styles.container}>
-        <CustomText text={title} size={40} fontColor="white" />
+        <CustomText text={text} size={40} fontColor="white" />
       </View>
     </TouchableWithoutFeedback>
   );

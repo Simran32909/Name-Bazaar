@@ -4,6 +4,7 @@ import {useNavigation} from '@react-navigation/native';
 import Card from '../components/Card';
 import icons from '../constants/icons';
 import {ScrollView} from 'react-native-gesture-handler';
+import SELECTIONS from '../constants/selections';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -13,12 +14,12 @@ export default function Home() {
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
         style={{flex: 1, marginVertical: 20}}>
-        <Card imgSrc={icons.boy} title="Boy" />
-        <Card imgSrc={icons.girl} title="Girl" />
-        <Card imgSrc={icons.shop} title="Shop" />
-        <Card imgSrc={icons.school} title="School" />
-        <Card imgSrc={icons.factory} title="Factory" />
-        <Card imgSrc={icons.company} title="Company" />
+        <Card imgSrc={icons.boy} title={SELECTIONS.BOY} />
+        <Card imgSrc={icons.girl} title={SELECTIONS.GIRL} />
+        <Card imgSrc={icons.shop} title={SELECTIONS.SHOP} />
+        <Card imgSrc={icons.school} title={SELECTIONS.SCHOOL} />
+        <Card imgSrc={icons.factory} title={SELECTIONS.FACTORY} />
+        <Card imgSrc={icons.company} title={SELECTIONS.COMPANY} />
       </ScrollView>
     </SafeAreaView>
   );
