@@ -1,6 +1,5 @@
 import {FlatList, SafeAreaView} from 'react-native';
 import React from 'react';
-import hindiNames from '../constants/namesList';
 import AlphabetTile from '../components/AlphabetTile';
 import getNamesData from '../utils/getNamesData';
 

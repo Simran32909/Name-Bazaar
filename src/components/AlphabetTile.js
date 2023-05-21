@@ -6,7 +6,6 @@ import NAVIGATIONS from '../constants/navigationConstants';
 
 export default function AlphabetTile({text, data}) {
   const navigation = useNavigation();
-  console.log(data);
   return (
     <TouchableWithoutFeedback
       onPress={() =>

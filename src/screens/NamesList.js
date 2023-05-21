@@ -1,6 +1,5 @@
 import {View, FlatList} from 'react-native';
 import React from 'react';
-import hindiNames from '../constants/namesList';
 import NameTile from '../components/NameTile';
 
 export default function NamesList({route}) {
