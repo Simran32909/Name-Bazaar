@@ -33,11 +33,11 @@ export default function SelectLanguage({route}) {
         fontStyle="italic"
       /> */}
       <CustomButton
-        text={LANGUAGES.ENGLISH.text}
+        text={LANGUAGES.HINDI.text}
         handlePress={() => {
           setLoading(true);
-          changeLang(LANGUAGES.ENGLISH.key);
-          console.log('selected english');
+          changeLang(LANGUAGES.HINDI.key);
+          console.log('selected hindi');
         }}
         textColor="#2196F3"
         btnColor="white"
@@ -45,11 +45,11 @@ export default function SelectLanguage({route}) {
         textSize={20}
       />
       <CustomButton
-        text={LANGUAGES.HINDI.text}
+        text={LANGUAGES.ENGLISH.text}
         handlePress={() => {
           setLoading(true);
-          changeLang(LANGUAGES.HINDI.key);
-          console.log('selected hindi');
+          changeLang(LANGUAGES.ENGLISH.key);
+          console.log('selected english');
         }}
         textColor="#2196F3"
         btnColor="white"
