@@ -1,6 +1,6 @@
 import BOYS_NAMES from '../constants/data/boysNames';
 import GIRLS_NAMES from '../constants/data/girlsNames';
-import SELECTIONS from '../constants/selections';
+import {SELECTIONS} from '../constants/consts';
 
 function getNamesData(selection) {
   if (selection == SELECTIONS.BOY) return BOYS_NAMES;

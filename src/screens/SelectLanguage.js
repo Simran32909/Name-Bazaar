@@ -1,7 +1,8 @@
-import {SafeAreaView, View, StyleSheet, Pressable} from 'react-native';
+import {SafeAreaView, View, StyleSheet} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import CustomButton from '../components/common/CustomButton';
+import {LANGUAGES} from '../constants/consts';
 
 export default function SelectLanguage() {
   return (
@@ -20,7 +21,7 @@ export default function SelectLanguage() {
         fontStyle="italic"
       /> */}
       <CustomButton
-        text="English"
+        text={LANGUAGES.ENGLISH.text}
         handlePress={() => {}}
         textColor="#2196F3"
         btnColor="white"
@@ -28,7 +29,7 @@ export default function SelectLanguage() {
         textSize={20}
       />
       <CustomButton
-        text="हिंदी"
+        text={LANGUAGES.HINDI.text}
         handlePress={() => {}}
         textColor="#2196F3"
         btnColor="white"
