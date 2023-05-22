@@ -1,8 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const KEY_VALUE = 'current_lang';
+
 const setLanguage = async language => {
   try {
-    await AsyncStorage.setItem('lang', language);
+    await AsyncStorage.setItem(KEY_VALUE, language);
   } catch (e) {
     console.log('cannot set language', e);
   }
@@ -10,13 +12,14 @@ const setLanguage = async language => {
 
 const getLanguage = async () => {
   try {
-    const language = await AsyncStorage.getItem('lang');
-    if (language !== null) {
-      return true;
-    }
-    return false;
+    const language = await AsyncStorage.getItem(KEY_VALUE);
+    // if (language !== null) {
+    //   return true;
+    // }
+    // return false;
+    return language;
   } catch (e) {
-    console.log('cannot get language', e);
+    console.error('cannot get language', e);
   }
 };
 

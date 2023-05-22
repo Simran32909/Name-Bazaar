@@ -7,24 +7,29 @@ import NamesList from './src/screens/NamesList';
 import NameMeaning from './src/screens/NameMeaning';
 import SelectLanguage from './src/screens/SelectLanguage';
 import {useTranslation} from 'react-i18next';
+import {useEffect, useState} from 'react';
+import {getLanguage} from './src/utils/languageUtils';
+import LoadingScreen from './src/screens/LoadingScreen';
 
 const Stack = createStackNavigator();
 
 function App() {
-  // TODO: use i8next with async storage
-  // OR
-  // define a state in app.js and send the setter fxn to SelectLanguage screen
-  // mke sure to update the state to lang stored in async storage because state
-  // loses it value after every render
-  // FIXME: how will the language change when I select the language
-  // check if i8next has a function to
-  // 1) see current language
-  // 2) change current language
-  // const getLang = async () => {
-  //   const data = await getLanguage();
-  //   console.log('data:', data);
-  //   return data;
-  // };
+  const [lang, setLang] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function getVal() {
+      const val = await getLanguage();
+      if (val != null) setLang(true);
+      else setLang(false);
+      setLoading(false);
+    }
+    getVal();
+  }, []);
+
+  // useEffect(() => setLoading(false), [lang]);
+  // useEffect(() => console.log(loading), [loading]);
+
   const {t} = useTranslation();
 
   return (
@@ -40,11 +45,19 @@ function App() {
             fontStyle: 'italic',
           },
         }}>
-        {!true ? (
+        {loading ? (
+          <Stack.Group screenOptions={{headerShown: false}}>
+            <Stack.Screen
+              name={NAVIGATIONS.LOADING_SCREEN.name}
+              component={LoadingScreen}
+            />
+          </Stack.Group>
+        ) : !lang ? (
           <Stack.Group screenOptions={{headerShown: false}}>
             <Stack.Screen
               name={NAVIGATIONS.LANGUAGE_SELECT.name}
               component={SelectLanguage}
+              initialParams={{setLang: setLang, setLoading: setLoading}}
             />
           </Stack.Group>
         ) : (

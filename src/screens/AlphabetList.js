@@ -2,11 +2,23 @@ import {FlatList, SafeAreaView} from 'react-native';
 import React from 'react';
 import AlphabetTile from '../components/AlphabetTile';
 import getNamesData from '../utils/getNamesData';
+import {useTranslation} from 'react-i18next';
+import {LANGUAGES} from '../constants/consts';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
+  const {t, i18n} = useTranslation();
+
   const selectedData = getNamesData(selection);
-  const namesData = selectedData.hindi;
+
+  // get language
+  // console.log('current language: ', i18n.language);
+  const curLanguage = i18n.language;
+  let namesData;
+  if (curLanguage == LANGUAGES.HINDI.key)
+    namesData = selectedData[LANGUAGES.HINDI.label];
+  else namesData = selectedData[LANGUAGES.ENGLISH.label];
+
   const alphabetsList = Object.keys(namesData);
 
   return (

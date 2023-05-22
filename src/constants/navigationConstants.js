@@ -28,6 +28,9 @@ const NAVIGATIONS = {
   DIRECT_CONTACT: {
     name: 'directcontact',
   },
+  LOADING_SCREEN: {
+    name: 'loadingscreen',
+  },
 };
 
 export default NAVIGATIONS;

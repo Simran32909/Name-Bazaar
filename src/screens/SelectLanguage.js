@@ -1,10 +1,22 @@
-import {SafeAreaView, View, StyleSheet} from 'react-native';
-import React from 'react';
+import {SafeAreaView, View, StyleSheet, ActivityIndicator} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import CustomText from '../components/common/CustomText';
 import CustomButton from '../components/common/CustomButton';
 import {LANGUAGES} from '../constants/consts';
+import {useTranslation} from 'react-i18next';
 
-export default function SelectLanguage() {
+export default function SelectLanguage({route}) {
+  const {t, i18n} = useTranslation();
+  const {setLang, setLoading} = route.params;
+
+  async function changeLang(language) {
+    // setLoading(true);
+    await i18n.changeLanguage(language);
+    // setLoading(false);
+    setLang(language);
+    setLoading(false);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
@@ -22,7 +34,11 @@ export default function SelectLanguage() {
       /> */}
       <CustomButton
         text={LANGUAGES.ENGLISH.text}
-        handlePress={() => {}}
+        handlePress={() => {
+          setLoading(true);
+          changeLang(LANGUAGES.ENGLISH.key);
+          console.log('selected english');
+        }}
         textColor="#2196F3"
         btnColor="white"
         style={styles.button}
@@ -30,7 +46,11 @@ export default function SelectLanguage() {
       />
       <CustomButton
         text={LANGUAGES.HINDI.text}
-        handlePress={() => {}}
+        handlePress={() => {
+          setLoading(true);
+          changeLang(LANGUAGES.HINDI.key);
+          console.log('selected hindi');
+        }}
         textColor="#2196F3"
         btnColor="white"
         style={styles.button}

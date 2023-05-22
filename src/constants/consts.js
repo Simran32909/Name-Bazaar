@@ -8,8 +8,8 @@ const SELECTIONS = {
 };
 
 const LANGUAGES = {
-  HINDI: {key: 'hi', text: 'हिंदी'},
-  ENGLISH: {key: 'en', text: 'English'},
+  HINDI: {key: 'hi', text: 'हिंदी', label: 'hindi'},
+  ENGLISH: {key: 'en', text: 'English', label: 'english'},
 };
 
 export {SELECTIONS, LANGUAGES};
