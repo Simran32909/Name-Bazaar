@@ -10,6 +10,7 @@ import {useTranslation} from 'react-i18next';
 import {useEffect, useState} from 'react';
 import {getLanguage} from './src/utils/languageUtils';
 import LoadingScreen from './src/screens/LoadingScreen';
+import ChangeLangIcon from './src/components/ChangeLangIcon';
 
 const Stack = createStackNavigator();
 
@@ -70,6 +71,7 @@ function App() {
             <Stack.Screen
               name={NAVIGATIONS.ALPHABET_LIST.name}
               component={AlphabetList}
+              options={{headerRight: () => <ChangeLangIcon />}}
             />
             <Stack.Screen
               name={NAVIGATIONS.NAMES_LIST.name}
