@@ -13,7 +13,7 @@ export default function SelectLanguage({route}) {
     // setLoading(true);
     await i18n.changeLanguage(language);
     // setLoading(false);
-    setLang(language);
+    setLang(true);
     setLoading(false);
   }
 
@@ -21,7 +21,7 @@ export default function SelectLanguage({route}) {
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
         <CustomText
-          text="Naam Bazaar"
+          text={t('Naam Bazaar')}
           fontColor="white"
           size={25}
           fontStyle="italic"

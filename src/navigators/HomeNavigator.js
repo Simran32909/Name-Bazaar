@@ -5,6 +5,7 @@ import SubscriptionDetails from '../screens/SubscriptionDetails';
 import DirectContact from '../screens/DirectContact';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import {useTranslation} from 'react-i18next';
+import ChangeLangIcon from '../components/ChangeLangIcon';
 
 const Drawer = createDrawerNavigator();
 
@@ -24,6 +25,7 @@ function HomeNavigator() {
         },
         drawerActiveTintColor: 'white',
         drawerActiveBackgroundColor: '#2196F3',
+        headerRight: () => <ChangeLangIcon />,
         // swipeEnabled: true,
       }}>
       <Drawer.Screen
