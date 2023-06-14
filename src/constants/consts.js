@@ -5,6 +5,8 @@ const SELECTIONS = {
   SCHOOL: 'School',
   FACTORY: 'Factory',
   COMPANY: 'Company',
+  UNIQUE: 'Unique Name (Boys/Girls)',
+  ASTRO: 'Name According to Constellation',
 };
 
 const LANGUAGES = {

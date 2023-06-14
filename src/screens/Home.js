@@ -27,6 +27,16 @@ export default function Home() {
           selection={SELECTIONS.GIRL}
         />
         <Card
+          imgSrc={icons.unique}
+          title={t(SELECTIONS.UNIQUE)}
+          selection={SELECTIONS.UNIQUE}
+        />
+        <Card
+          imgSrc={icons.astro}
+          title={t(SELECTIONS.ASTRO)}
+          selection={SELECTIONS.ASTRO}
+        />
+        <Card
           imgSrc={icons.shop}
           title={t(SELECTIONS.SHOP)}
           selection={SELECTIONS.SHOP}
