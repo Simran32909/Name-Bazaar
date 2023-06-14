@@ -1,4 +1,7 @@
 const NAVIGATIONS = {
+  LANGUAGE_SELECT: {
+    name: 'languageselect',
+  },
   HOME_NAVIGATOR: {
     name: 'homenavigator',
     // title: 'Home Navigator',
@@ -24,6 +27,9 @@ const NAVIGATIONS = {
   },
   DIRECT_CONTACT: {
     name: 'directcontact',
+  },
+  LOADING_SCREEN: {
+    name: 'loadingscreen',
   },
 };
 
