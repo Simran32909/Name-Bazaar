@@ -9,6 +9,7 @@ export default function CustomText({
   weight,
   textAlignment,
   fontStyle,
+  letterSpacing,
 }) {
   return (
     <Text
@@ -19,6 +20,7 @@ export default function CustomText({
         fontWeight: weight,
         textAlign: textAlignment,
         fontStyle: fontStyle,
+        letterSpacing: letterSpacing,
       }}>
       {text}
     </Text>
@@ -32,6 +34,7 @@ CustomText.propTypes = {
   weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   textAlignment: PropTypes.string,
   fontStyle: PropTypes.string,
+  letterSpacing: PropTypes.number,
 };
 
 CustomText.defaultProps = {
@@ -41,4 +44,5 @@ CustomText.defaultProps = {
   weight: 400,
   textAlignment: 'left',
   fontStyle: 'normal',
+  letterSpacing: 0,
 };
