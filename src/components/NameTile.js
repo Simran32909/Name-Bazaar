@@ -25,7 +25,7 @@ export default function NameTile({data}) {
 
 const styles = StyleSheet.create({
   container: {
-    // width: '50%',
+    width: '100%',
     backgroundColor: '#2196F3',
     flexDirection: 'row',
     // backgroundColor: 'white',
