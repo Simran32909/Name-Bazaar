@@ -6,13 +6,16 @@ import NAVIGATIONS from '../constants/navigationConstants';
 
 export default function NameTile({data}) {
   const navigation = useNavigation();
-  const name = data.name;
+
+  // since data from unique names is a string and from normal selection is a object
+  const name = data.name || data;
 
   return (
     <TouchableWithoutFeedback
-      onPress={() =>
-        navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {data: data})
-      }>
+      onPress={() => {
+        if (data.name)
+          navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {data: data});
+      }}>
       <View style={styles.container}>
         <CustomText text={name} size={40} fontColor="white" />
       </View>
@@ -30,6 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     borderWidth: StyleSheet.hairlineWidth,
+    paddingLeft: 12,
     // height: 200,
   },
 });

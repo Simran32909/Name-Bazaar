@@ -31,6 +31,12 @@ const NAVIGATIONS = {
   LOADING_SCREEN: {
     name: 'loadingscreen',
   },
+  UNIQUE_NAMES: {
+    name: 'uniquenames',
+  },
+  UNIQUE_NAMES_LIST: {
+    name: 'uniquenameslist',
+  },
 };
 
 export default NAVIGATIONS;

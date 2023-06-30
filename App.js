@@ -11,6 +11,8 @@ import {useEffect, useState} from 'react';
 import {getLanguage} from './src/utils/languageUtils';
 import LoadingScreen from './src/screens/LoadingScreen';
 import ChangeLangIcon from './src/components/ChangeLangIcon';
+import UniqueNamesScreen from './src/screens/UniqueNamesScreen';
+import UniqueNamesList from './src/screens/UniqueNamesList';
 
 const Stack = createStackNavigator();
 
@@ -80,6 +82,16 @@ function App() {
             <Stack.Screen
               name={NAVIGATIONS.NAMES_MEANING.name}
               component={NameMeaning}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.UNIQUE_NAMES.name}
+              component={UniqueNamesScreen}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.UNIQUE_NAMES_LIST.name}
+              component={UniqueNamesList}
+              options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>
         )}

@@ -6,6 +6,7 @@ import icons from '../constants/icons';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SELECTIONS} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
+import NAVIGATIONS from '../constants/navigationConstants';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -30,6 +31,7 @@ export default function Home() {
           imgSrc={icons.unique}
           title={t(SELECTIONS.UNIQUE)}
           selection={SELECTIONS.UNIQUE}
+          toPath={NAVIGATIONS.UNIQUE_NAMES.name}
         />
         <Card
           imgSrc={icons.astro}
