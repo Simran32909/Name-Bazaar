@@ -6,6 +6,7 @@ import DirectContact from '../screens/DirectContact';
 import PrivacyPolicy from '../screens/PrivacyPolicy';
 import {useTranslation} from 'react-i18next';
 import ChangeLangIcon from '../components/ChangeLangIcon';
+import CustomDrawerContent from '../components/CustomDrawerContent';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,6 +16,7 @@ function HomeNavigator() {
   return (
     <Drawer.Navigator
       initialRouteName={NAVIGATIONS.HOME.name}
+      drawerContent={CustomDrawerContent}
       screenOptions={{
         headerTitle: t('Naam Bazaar'),
         headerTitleAlign: 'center',
