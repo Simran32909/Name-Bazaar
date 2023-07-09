@@ -1,9 +1,9 @@
 import {FlatList, SafeAreaView} from 'react-native';
 import React from 'react';
 import AlphabetTile from '../components/AlphabetTile';
-import getNamesData from '../utils/getNamesData';
 import {useTranslation} from 'react-i18next';
 import {LANGUAGES} from '../constants/consts';
+import {getNamesData} from '../utils/getNamesData';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;

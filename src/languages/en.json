@@ -1,11 +1,11 @@
 {
   "Naam Bazaar": "Naam Bazaar",
-  "Boy": "Boy",
-  "Girl": "Girl",
-  "Shop": "Shop",
-  "School": "School",
-  "Factory": "Factory",
-  "Company": "Company",
+  "Boy": "Boy Name",
+  "Girl": "Girl Name",
+  "Shop": "Shop Name",
+  "School": "School Name",
+  "Factory": "Factory Name",
+  "Company": "Company Name",
   "Home": "Home",
   "Subscription Details": "Subscription Details",
   "Direct Contact": "Direct Contact",
@@ -13,5 +13,6 @@
   "Name": "Name",
   "Meaning:": "Meaning",
   "Unique Name (Boys/Girls)": "Unique Name (Boys/Girls)",
-  "Name According to Constellation": "Name According to Constellation"
+  "Name According to Constellation": "Name According to \nConstellation & Zodiac",
+  "Search Name": "Search Name"
 }
