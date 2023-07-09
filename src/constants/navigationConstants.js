@@ -37,6 +37,9 @@ const NAVIGATIONS = {
   UNIQUE_NAMES_LIST: {
     name: 'uniquenameslist',
   },
+  CONTACT_NOTICE: {
+    name: 'contactnotice',
+  },
 };
 
 export default NAVIGATIONS;

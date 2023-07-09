@@ -13,6 +13,7 @@ import LoadingScreen from './src/screens/LoadingScreen';
 import ChangeLangIcon from './src/components/ChangeLangIcon';
 import UniqueNamesScreen from './src/screens/UniqueNamesScreen';
 import UniqueNamesList from './src/screens/UniqueNamesList';
+import ContactNotice from './src/screens/ContactNotice';
 
 const Stack = createStackNavigator();
 
@@ -91,6 +92,11 @@ function App() {
             <Stack.Screen
               name={NAVIGATIONS.UNIQUE_NAMES_LIST.name}
               component={UniqueNamesList}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.CONTACT_NOTICE.name}
+              component={ContactNotice}
               options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>
