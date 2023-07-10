@@ -38,7 +38,7 @@ function HomeNavigator() {
       <Drawer.Screen
         name={NAVIGATIONS.SUBSCRIPTION_DETIALS.name}
         component={SubscriptionDetails}
-        options={{drawerLabel: t('Subscription Details')}}
+        options={{drawerLabel: t('Information')}}
       />
       <Drawer.Screen
         name={NAVIGATIONS.DIRECT_CONTACT.name}
