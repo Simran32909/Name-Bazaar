@@ -10,6 +10,8 @@ export default function CustomText({
   textAlignment,
   fontStyle,
   letterSpacing,
+  fontFamily,
+  customStyle,
 }) {
   return (
     <Text
@@ -21,6 +23,8 @@ export default function CustomText({
         textAlign: textAlignment,
         fontStyle: fontStyle,
         letterSpacing: letterSpacing,
+        fontFamily: fontFamily,
+        ...customStyle,
       }}>
       {text}
     </Text>
@@ -35,6 +39,8 @@ CustomText.propTypes = {
   textAlignment: PropTypes.string,
   fontStyle: PropTypes.string,
   letterSpacing: PropTypes.number,
+  fontFamily: PropTypes.string,
+  customStyle: PropTypes.object,
 };
 
 CustomText.defaultProps = {
@@ -45,4 +51,6 @@ CustomText.defaultProps = {
   textAlignment: 'left',
   fontStyle: 'normal',
   letterSpacing: 0,
+  fontFamily: 'normal',
+  customStyle: {},
 };
