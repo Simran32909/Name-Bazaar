@@ -44,6 +44,7 @@ export default function ContactNotice() {
           text="Click Here"
           size={20}
           fontColor="white"
+          letterSpacing={0.7}
           fontFamily="sans-serif-light"
         />
         <Feather name="arrow-right-circle" color="white" size={22} />
