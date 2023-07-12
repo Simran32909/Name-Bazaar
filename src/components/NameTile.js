@@ -15,6 +15,7 @@ export default function NameTile({data}) {
       onPress={() => {
         if (data.name)
           navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {data: data});
+        else navigation.navigate(NAVIGATIONS.CONTACT_NOTICE.name);
       }}>
       <View style={styles.container}>
         <CustomText text={name} size={40} fontColor="white" />
