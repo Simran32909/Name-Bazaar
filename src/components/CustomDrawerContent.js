@@ -4,6 +4,7 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useTranslation} from 'react-i18next';
+import {Linking, Share} from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
 export default function CustomDrawerContent(props) {
@@ -17,13 +18,20 @@ export default function CustomDrawerContent(props) {
         icon={({size, color}) => (
           <SimpleLineIcons name="star" color={color} size={size} />
         )}
-        // onPress={() => Linking.openURL('https://mywebsite.com/help')}
+        onPress={() => Linking.openURL('market://details?id=com.name_bazaar')}
       />
       <DrawerItem
         label={t('Share App')}
         icon={({size, color}) => (
           <SimpleLineIcons name="share" color={color} size={size} />
         )}
+        onPress={() =>
+          Share.share({
+            message: `${t(
+              'share msg',
+            )}\n ${'https://play.google.com/store/apps/details?id=com.naam_bazaar'}`,
+          })
+        }
       />
     </DrawerContentScrollView>
   );
