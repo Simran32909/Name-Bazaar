@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import ChangeLangModal from './ChangeLangModal';
 import {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {horizontalScale} from '../utils/metrics';
 
 export default function ChangeLangIcon() {
   const [isVisible, setVisibility] = useState(false);
@@ -19,5 +20,5 @@ export default function ChangeLangIcon() {
 }
 
 const styles = StyleSheet.create({
-  container: {paddingRight: 10},
+  container: {paddingRight: horizontalScale(10)},
 });

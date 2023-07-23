@@ -2,6 +2,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
+import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function LoadingScreen() {
   const {t} = useTranslation();
@@ -26,14 +27,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 15,
+    gap: verticalScale(15),
     backgroundColor: 'white',
   },
   logo: {
     backgroundColor: '#2196F3',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(10),
+    borderRadius: moderateScale(10),
     width: '50%',
     flexDirection: 'row',
     justifyContent: 'center',

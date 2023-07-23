@@ -3,6 +3,7 @@ import React from 'react';
 import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
+import {verticalScale} from '../utils/metrics';
 
 export default function AlphabetTile({text, data}) {
   const navigation = useNavigation();
@@ -35,6 +36,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     borderWidth: StyleSheet.hairlineWidth,
-    height: 200,
+    height: verticalScale(200),
   },
 });

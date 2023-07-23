@@ -11,6 +11,7 @@ import CustomButton from './common/CustomButton';
 import {LANGUAGES} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
 import LoadingScreen from '../screens/LoadingScreen';
+import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function ChangeLangModal({isVisible, setVisibility}) {
   const {t, i18n} = useTranslation();
@@ -77,13 +78,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#00000099',
-    gap: 20,
+    gap: verticalScale(20),
   },
   logo: {
     backgroundColor: '#2196F3',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(10),
+    borderRadius: moderateScale(10),
     width: '50%',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
   button: {
     width: '50%',
     borderColor: '#2196F3',
-    borderWidth: 1,
+    borderWidth: moderateScale(1),
   },
 });
 

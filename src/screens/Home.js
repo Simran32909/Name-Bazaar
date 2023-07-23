@@ -7,6 +7,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 import {SELECTIONS} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
 import NAVIGATIONS from '../constants/navigationConstants';
+import {horizontalScale, verticalScale} from '../utils/metrics';
 
 export default function Home() {
   const navigation = useNavigation();
@@ -16,7 +17,7 @@ export default function Home() {
     <SafeAreaView style={styles.mainContainer}>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
-        style={{flex: 1, marginVertical: 20}}>
+        style={{flex: 1, marginVertical: verticalScale(20)}}>
         <Card
           imgSrc={icons.boy}
           title={t(SELECTIONS.BOY)}
@@ -71,12 +72,12 @@ export default function Home() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    paddingHorizontal: 10,
+    paddingHorizontal: horizontalScale(10),
     backgroundColor: 'white',
   },
   scrollContainer: {
     flexGrow: 1,
-    rowGap: 15,
-    paddingBottom: 10,
+    rowGap: verticalScale(15),
+    paddingBottom: verticalScale(10),
   },
 });

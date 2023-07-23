@@ -2,6 +2,7 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
+import {horizontalScale, verticalScale} from '../utils/metrics';
 
 export default function NameMeaning({route}) {
   const {data} = route.params;
@@ -42,9 +43,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#2196F3',
     justifyContent: 'center',
-    gap: 20,
+    gap: verticalScale(20),
     // alignItems: 'center',
-    padding: 20,
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
   },
   nameContainer: {
     flexDirection: 'row',
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     backgroundColor: 'white',
-    height: 5,
+    height: verticalScale(5),
   },
   meaningContainer: {
     justifyContent: 'center',

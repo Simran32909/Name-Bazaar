@@ -4,6 +4,7 @@ import CustomText from '../components/common/CustomText';
 import CustomButton from '../components/common/CustomButton';
 import {LANGUAGES} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
+import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function SelectLanguage({route}) {
   const {t, i18n} = useTranslation();
@@ -66,17 +67,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    gap: 20,
+    gap: verticalScale(20),
   },
   logo: {
     backgroundColor: '#2196F3',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 10,
+    paddingHorizontal: horizontalScale(20),
+    paddingVertical: verticalScale(10),
+    borderRadius: moderateScale(10),
   },
   button: {
     width: '50%',
     borderColor: '#2196F3',
-    borderWidth: 1,
+    borderWidth: moderateScale(1),
   },
 });

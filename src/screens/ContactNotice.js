@@ -12,6 +12,7 @@ import CustomText from '../components/common/CustomText';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
 import Feather from 'react-native-vector-icons/Feather';
+import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function ContactNotice() {
   const {t} = useTranslation();
@@ -19,7 +20,12 @@ export default function ContactNotice() {
   const noOfPoints = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   const Points = ({text}) => (
-    <View style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
+    <View
+      style={{
+        flexDirection: 'row',
+        gap: horizontalScale(10),
+        alignItems: 'center',
+      }}>
       <Image source={icons.star} />
       <CustomText
         text={t(`${text}`)}
@@ -36,9 +42,10 @@ export default function ContactNotice() {
           flexDirection: 'row',
           alignItems: 'center',
           backgroundColor: '#2196F3',
-          padding: 10,
-          borderRadius: 8,
-          gap: 5,
+          paddingHorizontal: horizontalScale(10),
+          paddingVertical: verticalScale(10),
+          borderRadius: moderateScale(8),
+          gap: horizontalScale(5),
         }}>
         <CustomText
           text="Click Here"
@@ -120,21 +127,21 @@ export default function ContactNotice() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 20,
-    paddingHorizontal: 20,
+    paddingVertical: verticalScale(20),
+    paddingHorizontal: horizontalScale(20),
   },
   scrollContainer: {
     // marginTop: 20,
     // alignItems: 'center',
     justifyContent: 'center',
-    gap: 10,
+    gap: verticalScale(10),
   },
   points: {
-    gap: 5,
+    gap: verticalScale(5),
   },
   whtsapDiv: {
-    gap: 20,
-    marginVertical: 10,
+    gap: verticalScale(20),
+    marginVertical: verticalScale(10),
   },
   phoneBox: {
     flexDirection: 'row',
@@ -145,11 +152,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: horizontalScale(10),
     borderColor: 'green',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 5,
+    borderWidth: moderateScale(1),
+    borderRadius: moderateScale(8),
+    paddingVertical: verticalScale(10),
+    paddingHorizontal: horizontalScale(5),
   },
 });

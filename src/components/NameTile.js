@@ -3,6 +3,7 @@ import React from 'react';
 import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
+import {horizontalScale} from '../utils/metrics';
 
 export default function NameTile({data}) {
   const navigation = useNavigation();
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'white',
     borderWidth: StyleSheet.hairlineWidth,
-    paddingLeft: 12,
+    paddingLeft: horizontalScale(12),
     // height: 200,
   },
 });

@@ -5,6 +5,7 @@ import {LANGUAGES} from '../constants/consts';
 import NameTile from '../components/NameTile';
 import {useEffect, useState} from 'react';
 import Fuse from 'fuse.js';
+import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function UniqueNamesList({route}) {
   const {selection} = route.params;
@@ -58,20 +59,20 @@ export default function UniqueNamesList({route}) {
 }
 
 const styles = StyleSheet.create({
-  container: {alignItems: 'center', paddingTop: 16},
+  container: {alignItems: 'center', paddingTop: verticalScale(16)},
   searchBox: {
     color: 'black',
     padding: 0,
     margin: 0,
-    fontSize: 30,
-    paddingHorizontal: 12,
-    marginBottom: 16,
+    fontSize: moderateScale(30),
+    paddingHorizontal: horizontalScale(12),
+    marginBottom: verticalScale(16),
     width: '90%',
     // flexDirection: 'row',
     // alignItems: 'center',
     // justifyContent: 'center',
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: moderateScale(1),
   },
   listStyle: {
     width: '100%',
