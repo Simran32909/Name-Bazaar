@@ -3,7 +3,6 @@ import React from 'react';
 import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
-import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function Card({
   imgSrc,
@@ -46,10 +45,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
-    borderRadius: moderateScale(7),
-    paddingVertical: verticalScale(7),
-    paddingHorizontal: horizontalScale(10),
+    borderRadius: 7,
+    paddingVertical: 7,
+    paddingHorizontal: 10,
     alignItems: 'center',
-    gap: horizontalScale(15),
+    gap: 15,
   },
 });

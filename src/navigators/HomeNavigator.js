@@ -10,7 +10,6 @@ import CustomDrawerContent from '../components/CustomDrawerContent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {horizontalScale, verticalScale} from '../utils/metrics';
 
 const Drawer = createDrawerNavigator();
 
@@ -31,7 +30,7 @@ function HomeNavigator() {
         },
         drawerActiveTintColor: 'white',
         drawerActiveBackgroundColor: '#2196F3',
-        drawerStyle: {paddingTop: verticalScale(20)},
+        drawerStyle: {paddingTop: 20},
         headerRight: () => <ChangeLangIcon />,
 
         // swipeEnabled: true,

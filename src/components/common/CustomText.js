@@ -1,7 +1,6 @@
 import {Text} from 'react-native';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {moderateScale} from '../../utils/metrics';
 
 export default function CustomText({
   text,
@@ -18,7 +17,7 @@ export default function CustomText({
     <Text
       style={{
         color: 'black',
-        fontSize: moderateScale(size),
+        fontSize: size,
         color: fontColor,
         fontWeight: weight,
         textAlign: textAlignment,
@@ -46,7 +45,7 @@ CustomText.propTypes = {
 
 CustomText.defaultProps = {
   text: 'text',
-  size: moderateScale(16),
+  size: 16,
   fontColor: 'black',
   weight: 400,
   textAlignment: 'left',

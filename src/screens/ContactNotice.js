@@ -12,7 +12,6 @@ import CustomText from '../components/common/CustomText';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
 import Feather from 'react-native-vector-icons/Feather';
-import {horizontalScale, moderateScale, verticalScale} from '../utils/metrics';
 
 export default function ContactNotice() {
   const {t} = useTranslation();
@@ -23,7 +22,7 @@ export default function ContactNotice() {
     <View
       style={{
         flexDirection: 'row',
-        gap: horizontalScale(10),
+        gap: 10,
         alignItems: 'center',
       }}>
       <Image source={icons.star} />
@@ -42,10 +41,10 @@ export default function ContactNotice() {
           flexDirection: 'row',
           alignItems: 'center',
           backgroundColor: '#2196F3',
-          paddingHorizontal: horizontalScale(10),
-          paddingVertical: verticalScale(10),
-          borderRadius: moderateScale(8),
-          gap: horizontalScale(5),
+          paddingHorizontal: 10,
+          paddingVertical: 10,
+          borderRadius: 8,
+          gap: 5,
         }}>
         <CustomText
           text="Click Here"
@@ -127,21 +126,21 @@ export default function ContactNotice() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: verticalScale(20),
-    paddingHorizontal: horizontalScale(20),
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   scrollContainer: {
     // marginTop: 20,
     // alignItems: 'center',
     justifyContent: 'center',
-    gap: verticalScale(10),
+    gap: 10,
   },
   points: {
-    gap: verticalScale(5),
+    gap: 5,
   },
   whtsapDiv: {
-    gap: verticalScale(20),
-    marginVertical: verticalScale(10),
+    gap: 20,
+    marginVertical: 10,
   },
   phoneBox: {
     flexDirection: 'row',
@@ -152,11 +151,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: horizontalScale(10),
+    gap: 10,
     borderColor: 'green',
-    borderWidth: moderateScale(1),
-    borderRadius: moderateScale(8),
-    paddingVertical: verticalScale(10),
-    paddingHorizontal: horizontalScale(5),
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 5,
   },
 });

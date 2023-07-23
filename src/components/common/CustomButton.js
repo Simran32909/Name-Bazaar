@@ -1,11 +1,6 @@
 import {StyleSheet, Pressable} from 'react-native';
 import CustomText from './CustomText';
 import PropTypes from 'prop-types';
-import {
-  horizontalScale,
-  moderateScale,
-  verticalScale,
-} from '../../utils/metrics';
 
 export default function CustomButton({
   text,
@@ -45,7 +40,7 @@ CustomButton.defaultProps = {
   text: '',
   handlePress: () => {},
   textColor: 'white',
-  textSize: moderateScale(16),
+  textSize: 16,
   fontWeight: 400,
   btnColor: '#2196F3',
   style: {},
@@ -54,8 +49,8 @@ CustomButton.defaultProps = {
 const styles = StyleSheet.create({
   btn: {
     // alignSelf: 'flex-start',
-    paddingHorizontal: horizontalScale(20),
-    paddingVertical: verticalScale(10),
-    borderRadius: moderateScale(8),
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 8,
   },
 });

@@ -5,7 +5,6 @@ import {SELECTIONS} from '../constants/consts';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
 import NAVIGATIONS from '../constants/navigationConstants';
-import {horizontalScale, verticalScale} from '../utils/metrics';
 
 export default function UniqueNamesScreen() {
   const {t} = useTranslation();
@@ -31,9 +30,9 @@ export default function UniqueNamesScreen() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    paddingHorizontal: horizontalScale(10),
+    paddingHorizontal: 10,
     backgroundColor: 'white',
-    rowGap: verticalScale(15),
-    marginTop: verticalScale(20),
+    rowGap: 15,
+    marginTop: 20,
   },
 });
