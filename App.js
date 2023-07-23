@@ -41,7 +41,7 @@ function App() {
       <Stack.Navigator
         initialRouteName={NAVIGATIONS.HOME_NAVIGATOR.name}
         screenOptions={{
-          headerTitle: t('Naam Bazaar'),
+          headerTitle: t('Name Bazaar'),
           headerTitleAlign: 'center',
           headerTintColor: 'white',
           headerStyle: {backgroundColor: '#2196F3'},

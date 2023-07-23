@@ -29,7 +29,7 @@ export default function CustomDrawerContent(props) {
           Share.share({
             message: `${t(
               'share msg',
-            )}\n ${'https://play.google.com/store/apps/details?id=com.naam_bazaar'}`,
+            )}\n ${'https://play.google.com/store/apps/details?id=com.name_bazaar'}`,
           })
         }
       />

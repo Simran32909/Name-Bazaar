@@ -21,7 +21,7 @@ function HomeNavigator() {
       initialRouteName={NAVIGATIONS.HOME.name}
       drawerContent={CustomDrawerContent}
       screenOptions={{
-        headerTitle: t('Naam Bazaar'),
+        headerTitle: t('Name Bazaar'),
         headerTitleAlign: 'center',
         headerTintColor: 'white',
         headerStyle: {backgroundColor: '#2196F3'},
