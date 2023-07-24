@@ -3,7 +3,6 @@ import Home from '../screens/Home';
 import NAVIGATIONS from '../constants/navigationConstants';
 import SubscriptionDetails from '../screens/SubscriptionDetails';
 import DirectContact from '../screens/DirectContact';
-import PrivacyPolicy from '../screens/PrivacyPolicy';
 import {useTranslation} from 'react-i18next';
 import ChangeLangIcon from '../components/ChangeLangIcon';
 import CustomDrawerContent from '../components/CustomDrawerContent';
@@ -66,20 +65,6 @@ function HomeNavigator() {
           drawerLabel: t('Direct Contact'),
           drawerIcon: ({color, size}) => (
             <SimpleLineIcons name="phone" color={color} size={size} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name={NAVIGATIONS.PRIVACY_POLICY.name}
-        component={PrivacyPolicy}
-        options={{
-          drawerLabel: t('Privacy Policy'),
-          drawerIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="account-lock-outline"
-              color={color}
-              size={size}
-            />
           ),
         }}
       />

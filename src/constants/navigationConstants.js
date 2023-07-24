@@ -22,9 +22,6 @@ const NAVIGATIONS = {
   SUBSCRIPTION_DETIALS: {
     name: 'subscriptiondetials',
   },
-  PRIVACY_POLICY: {
-    name: 'privacypolicy',
-  },
   DIRECT_CONTACT: {
     name: 'directcontact',
   },
