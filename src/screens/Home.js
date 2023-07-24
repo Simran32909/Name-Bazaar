@@ -37,26 +37,31 @@ export default function Home() {
           imgSrc={icons.astro}
           title={t(SELECTIONS.ASTRO)}
           selection={SELECTIONS.ASTRO}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
           imgSrc={icons.shop}
           title={t(SELECTIONS.SHOP)}
           selection={SELECTIONS.SHOP}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
           imgSrc={icons.school}
           title={t(SELECTIONS.SCHOOL)}
           selection={SELECTIONS.SCHOOL}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
           imgSrc={icons.factory}
           title={t(SELECTIONS.FACTORY)}
           selection={SELECTIONS.FACTORY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
           imgSrc={icons.company}
           title={t(SELECTIONS.COMPANY)}
           selection={SELECTIONS.COMPANY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
       </ScrollView>
     </SafeAreaView>

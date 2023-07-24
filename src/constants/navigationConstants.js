@@ -22,9 +22,6 @@ const NAVIGATIONS = {
   SUBSCRIPTION_DETIALS: {
     name: 'subscriptiondetials',
   },
-  PRIVACY_POLICY: {
-    name: 'privacypolicy',
-  },
   DIRECT_CONTACT: {
     name: 'directcontact',
   },
@@ -36,6 +33,9 @@ const NAVIGATIONS = {
   },
   UNIQUE_NAMES_LIST: {
     name: 'uniquenameslist',
+  },
+  CONTACT_NOTICE: {
+    name: 'contactnotice',
   },
 };
 

@@ -27,7 +27,12 @@ export default function Card({
             height: 65,
           }}
         />
-        <CustomText text={title} size={20} fontColor="white" />
+        <CustomText
+          text={title}
+          size={20}
+          fontColor="white"
+          customStyle={{flex: 1, flexWrap: 'wrap'}}
+        />
       </View>
     </TouchableWithoutFeedback>
   );

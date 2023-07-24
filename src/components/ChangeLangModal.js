@@ -35,7 +35,7 @@ export default function ChangeLangModal({isVisible, setVisibility}) {
         <SafeAreaView style={styles.container}>
           <View style={styles.logo}>
             <CustomText
-              text={t('Naam Bazaar')}
+              text={t('Name Bazaar')}
               fontColor="white"
               size={25}
               fontStyle="italic"

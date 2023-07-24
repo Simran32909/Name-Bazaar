@@ -4,6 +4,7 @@ import CustomText from '../components/common/CustomText';
 import CustomButton from '../components/common/CustomButton';
 import {LANGUAGES} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
+import {horizontalScale} from '../utils/metrics';
 
 export default function SelectLanguage({route}) {
   const {t, i18n} = useTranslation();
@@ -19,11 +20,20 @@ export default function SelectLanguage({route}) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <CustomText
+        text={`${'Welcome\nto'}`}
+        size={32}
+        weight={'bold'}
+        textAlignment={'center'}
+        fontColor={'#138ae8'}
+        fontFamily={'cursive'}
+      />
       <View style={styles.logo}>
         <CustomText
-          text={t('Naam Bazaar')}
+          text={t('Name Bazaar')}
           fontColor="white"
-          size={25}
+          size={30}
+          weight={700}
           fontStyle="italic"
         />
       </View>
@@ -70,7 +80,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     backgroundColor: '#2196F3',
-    paddingHorizontal: 20,
+    paddingHorizontal: horizontalScale(60),
+    // width: '90%',
     paddingVertical: 10,
     borderRadius: 10,
   },
