@@ -1,14 +1,13 @@
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Home from '../screens/Home';
 import NAVIGATIONS from '../constants/navigationConstants';
-import SubscriptionDetails from '../screens/SubscriptionDetails';
 import DirectContact from '../screens/DirectContact';
 import {useTranslation} from 'react-i18next';
 import ChangeLangIcon from '../components/ChangeLangIcon';
 import CustomDrawerContent from '../components/CustomDrawerContent';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Information from '../screens/Information';
 
 const Drawer = createDrawerNavigator();
 
@@ -45,8 +44,8 @@ function HomeNavigator() {
         }}
       />
       <Drawer.Screen
-        name={NAVIGATIONS.SUBSCRIPTION_DETIALS.name}
-        component={SubscriptionDetails}
+        name={NAVIGATIONS.INFORMATION.name}
+        component={Information}
         options={{
           drawerLabel: t('Information'),
           drawerIcon: ({color, size}) => (

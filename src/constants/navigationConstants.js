@@ -19,8 +19,8 @@ const NAVIGATIONS = {
   NAMES_MEANING: {
     name: 'namesmeaning',
   },
-  SUBSCRIPTION_DETIALS: {
-    name: 'subscriptiondetials',
+  INFORMATION: {
+    name: 'information',
   },
   DIRECT_CONTACT: {
     name: 'directcontact',

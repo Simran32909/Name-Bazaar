@@ -1,17 +1,9 @@
-import {
-  Image,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Linking,
-  ScrollView,
-} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
-import Feather from 'react-native-vector-icons/Feather';
+import PhoneNo from '../components/PhoneNo';
 
 export default function ContactNotice() {
   const {t} = useTranslation();
@@ -31,55 +23,6 @@ export default function ContactNotice() {
         size={20}
         customStyle={{flex: 1, flexWrap: 'wrap'}}
       />
-    </View>
-  );
-
-  const PhoneNo = ({number}) => (
-    <View style={styles.phoneBox}>
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          backgroundColor: '#2196F3',
-          paddingHorizontal: 10,
-          paddingVertical: 10,
-          borderRadius: 8,
-          gap: 5,
-        }}>
-        <CustomText
-          text="Click Here"
-          size={20}
-          fontColor="white"
-          letterSpacing={0.7}
-          fontFamily="sans-serif-light"
-        />
-        <Feather name="arrow-right-circle" color="white" size={22} />
-      </View>
-      <Pressable
-        style={styles.phoneNo}
-        onPress={() => {
-          Linking.openURL('whatsapp://send?text=' + `&phone=91${number}`)
-            .then(() => {
-              console.log('WhatsApp Opened for ' + `${number}`);
-            })
-            .catch(() => {
-              alert('Make sure WhatsApp installed on your device');
-            });
-        }}>
-        <Image
-          source={icons.whatsapp}
-          style={{
-            width: 35,
-            height: 35,
-          }}
-        />
-        <CustomText
-          text={number}
-          size={20}
-          letterSpacing={0.5}
-          fontFamily="sans-serif-medium"
-        />
-      </Pressable>
     </View>
   );
 
@@ -130,8 +73,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   scrollContainer: {
-    // marginTop: 20,
-    // alignItems: 'center',
     justifyContent: 'center',
     gap: 10,
   },
@@ -141,21 +82,5 @@ const styles = StyleSheet.create({
   whtsapDiv: {
     gap: 20,
     marginVertical: 10,
-  },
-  phoneBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  phoneNo: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 10,
-    borderColor: 'green',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 5,
   },
 });
