@@ -7,6 +7,7 @@ const SELECTIONS = {
   COMPANY: 'Company',
   UNIQUE: 'Unique Name (Boys/Girls)',
   ASTRO: 'Name According to Constellation',
+  BABY: 'Baby Name',
 };
 
 const LANGUAGES = {
