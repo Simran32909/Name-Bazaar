@@ -43,6 +43,12 @@ export default function ContactNotice() {
           weight={'bold'}
           fontStyle={'italic'}
         />
+        <CustomText text={t('For more info')} size={20} />
+        <CustomText text={t('Paid Services')} />
+        <View style={styles.whtsapDiv}>
+          <PhoneNo number="8948840344" />
+          <PhoneNo number="8949988068" />
+        </View>
         <CustomText text={t('SubHead')} size={20} />
         <View style={styles.points}>
           <CustomText
