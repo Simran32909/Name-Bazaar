@@ -9,6 +9,7 @@ import astro from '../assets/astro.png';
 import whatsapp from '../assets/whatsapp.png';
 import star from '../assets/star.png';
 import family from '../assets/family.png';
+import name from '../assets/name.png';
 
 export default {
   boy,
@@ -22,4 +23,5 @@ export default {
   whatsapp,
   star,
   family,
+  name,
 };

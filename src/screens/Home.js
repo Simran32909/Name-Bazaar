@@ -69,6 +69,12 @@ export default function Home() {
           selection={SELECTIONS.COMPANY}
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
+        <Card
+          imgSrc={icons.name}
+          title={t(SELECTIONS.NAME)}
+          selection={SELECTIONS.NAME}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
       </ScrollView>
     </SafeAreaView>
   );

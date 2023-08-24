@@ -15,13 +15,14 @@ export default function ContactNotice() {
       style={{
         flexDirection: 'row',
         gap: 10,
-        alignItems: 'center',
+        // alignItems: 'flex-start',
       }}>
-      <Image source={icons.star} />
+      <Image source={icons.star} style={{marginTop: 3}} />
       <CustomText
         text={t(`${text}`)}
         size={20}
         customStyle={{flex: 1, flexWrap: 'wrap'}}
+        includeFontPadding={false}
       />
     </View>
   );
@@ -29,6 +30,12 @@ export default function ContactNotice() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <CustomText text={t('For more info')} size={20} />
+        <CustomText text={t('Paid Services')} />
+        <View style={styles.whtsapDiv}>
+          <PhoneNo number="8948840344" />
+          <PhoneNo number="8949988068" />
+        </View>
         <CustomText
           text={t('Reveal Destiny')}
           fontColor={'#2196F3'}
@@ -43,12 +50,6 @@ export default function ContactNotice() {
           weight={'bold'}
           fontStyle={'italic'}
         />
-        <CustomText text={t('For more info')} size={20} />
-        <CustomText text={t('Paid Services')} />
-        <View style={styles.whtsapDiv}>
-          <PhoneNo number="8948840344" />
-          <PhoneNo number="8949988068" />
-        </View>
         <CustomText text={t('SubHead')} size={20} />
         <View style={styles.points}>
           <CustomText
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   points: {
-    gap: 5,
+    gap: 7,
   },
   whtsapDiv: {
     gap: 20,
