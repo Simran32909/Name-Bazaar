@@ -26,7 +26,9 @@ function App() {
       const val = await getLanguage();
       if (val != null) setLang(true);
       else setLang(false);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 730);
     }
     getVal();
   }, []);
