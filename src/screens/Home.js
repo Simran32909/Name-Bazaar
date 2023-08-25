@@ -43,7 +43,7 @@ export default function Home() {
           imgSrc={icons.astro}
           title={t(SELECTIONS.ASTRO)}
           selection={SELECTIONS.ASTRO}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          toPath={NAVIGATIONS.NAKSTRAS_SCREEN.name}
         />
         <Card
           imgSrc={icons.shop}

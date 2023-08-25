@@ -8,7 +8,8 @@ import PhoneNo from '../components/PhoneNo';
 export default function ContactNotice() {
   const {t} = useTranslation();
 
-  const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
+  // const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
+  const noOfPoints = [1, 2, 3, 6, 7, 8, 9, 10, 11, 12];
 
   const Points = ({text}) => (
     <View
