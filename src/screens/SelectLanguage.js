@@ -1,10 +1,10 @@
-import {SafeAreaView, View, StyleSheet, ActivityIndicator} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {SafeAreaView, View, StyleSheet, Image} from 'react-native';
 import CustomText from '../components/common/CustomText';
 import CustomButton from '../components/common/CustomButton';
 import {LANGUAGES} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
 import {horizontalScale} from '../utils/metrics';
+import icons from '../constants/icons';
 
 export default function SelectLanguage({route}) {
   const {t, i18n} = useTranslation();
@@ -42,6 +42,13 @@ export default function SelectLanguage({route}) {
         // size={10}
         fontStyle="italic"
       /> */}
+      <Image
+        source={icons.namaste}
+        style={{
+          width: 100,
+          height: 100,
+        }}
+      />
       <CustomButton
         text={LANGUAGES.HINDI.text}
         handlePress={() => {

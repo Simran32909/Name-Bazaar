@@ -1,9 +1,9 @@
-import {FlatList, SafeAreaView} from 'react-native';
+import {FlatList, SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import NAKSHATRAS from '../constants/data/nameNakshatras';
 import {useTranslation} from 'react-i18next';
 import {LANGUAGES} from '../constants/consts';
-import NameTile from '../components/NameTile';
+import CustomText from '../components/common/CustomText';
 
 export default function NakstrasScreen() {
   const {t, i18n} = useTranslation();
@@ -19,9 +19,27 @@ export default function NakstrasScreen() {
       <FlatList
         // style={styles.listStyle}
         data={namesData}
-        renderItem={({item}) => <NameTile data={item} />}
+        renderItem={({item}) => (
+          <View style={styles.tile}>
+            <CustomText text={item.label} size={50} fontColor={'white'} />
+            <CustomText text={item.value} size={20} fontColor={'white'} />
+          </View>
+        )}
+        numColumns={2}
         keyExtractor={(item, index) => index}
       />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  tile: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '50%',
+    backgroundColor: '#2196F3',
+    borderColor: 'white',
+    borderWidth: StyleSheet.hairlineWidth,
+    height: 200,
+  },
+});

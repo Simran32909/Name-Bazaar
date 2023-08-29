@@ -1,8 +1,9 @@
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
 import {horizontalScale} from '../utils/metrics';
+import icons from '../constants/icons';
 
 export default function LoadingScreen() {
   const {t} = useTranslation();
@@ -26,6 +27,13 @@ export default function LoadingScreen() {
           fontStyle="italic"
         />
       </View>
+      <Image
+        source={icons.namaste}
+        style={{
+          width: 100,
+          height: 100,
+        }}
+      />
       <ActivityIndicator size="large" color="#2196F3" />
     </SafeAreaView>
   );
