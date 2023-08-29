@@ -14,6 +14,7 @@ import ChangeLangIcon from './src/components/ChangeLangIcon';
 import UniqueNamesScreen from './src/screens/UniqueNamesScreen';
 import UniqueNamesList from './src/screens/UniqueNamesList';
 import ContactNotice from './src/screens/ContactNotice';
+import NakstrasScreen from './src/screens/NakstrasScreen';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +27,9 @@ function App() {
       const val = await getLanguage();
       if (val != null) setLang(true);
       else setLang(false);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1500);
     }
     getVal();
   }, []);
@@ -97,6 +100,11 @@ function App() {
             <Stack.Screen
               name={NAVIGATIONS.CONTACT_NOTICE.name}
               component={ContactNotice}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.NAKSTRAS_SCREEN.name}
+              component={NakstrasScreen}
               options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>

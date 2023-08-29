@@ -8,20 +8,22 @@ import PhoneNo from '../components/PhoneNo';
 export default function ContactNotice() {
   const {t} = useTranslation();
 
-  const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
+  // const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
+  const noOfPoints = [1, 2, 3, 6, 7, 8, 9, 10, 11, 12];
 
   const Points = ({text}) => (
     <View
       style={{
         flexDirection: 'row',
         gap: 10,
-        alignItems: 'center',
+        // alignItems: 'flex-start',
       }}>
-      <Image source={icons.star} />
+      <Image source={icons.star} style={{marginTop: 3}} />
       <CustomText
         text={t(`${text}`)}
         size={20}
         customStyle={{flex: 1, flexWrap: 'wrap'}}
+        includeFontPadding={false}
       />
     </View>
   );
@@ -29,6 +31,12 @@ export default function ContactNotice() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <CustomText text={t('For more info')} size={20} />
+        <CustomText text={t('Paid Services')} />
+        <View style={styles.whtsapDiv}>
+          <PhoneNo number="8948840344" />
+          <PhoneNo number="8949988068" />
+        </View>
         <CustomText
           text={t('Reveal Destiny')}
           fontColor={'#2196F3'}
@@ -77,7 +85,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   points: {
-    gap: 5,
+    gap: 7,
   },
   whtsapDiv: {
     gap: 20,

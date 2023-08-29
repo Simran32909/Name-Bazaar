@@ -12,6 +12,7 @@ export default function CustomText({
   letterSpacing,
   fontFamily,
   customStyle,
+  includeFontPadding,
 }) {
   return (
     <Text
@@ -24,6 +25,7 @@ export default function CustomText({
         fontStyle: fontStyle,
         letterSpacing: letterSpacing,
         fontFamily: fontFamily,
+        includeFontPadding: includeFontPadding,
         ...customStyle,
       }}>
       {text}
@@ -41,6 +43,7 @@ CustomText.propTypes = {
   letterSpacing: PropTypes.number,
   fontFamily: PropTypes.string,
   customStyle: PropTypes.object,
+  includeFontPadding: PropTypes.bool,
 };
 
 CustomText.defaultProps = {
@@ -53,4 +56,5 @@ CustomText.defaultProps = {
   letterSpacing: 0,
   fontFamily: 'normal',
   customStyle: {},
+  includeFontPadding: true,
 };

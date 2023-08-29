@@ -37,6 +37,9 @@ const NAVIGATIONS = {
   CONTACT_NOTICE: {
     name: 'contactnotice',
   },
+  NAKSTRAS_SCREEN: {
+    name: 'nakstrascreen',
+  },
 };
 
 export default NAVIGATIONS;

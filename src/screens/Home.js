@@ -34,10 +34,16 @@ export default function Home() {
           toPath={NAVIGATIONS.UNIQUE_NAMES.name}
         />
         <Card
+          imgSrc={icons.family}
+          title={t(SELECTIONS.BABY)}
+          selection={SELECTIONS.BABY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
+        <Card
           imgSrc={icons.astro}
           title={t(SELECTIONS.ASTRO)}
           selection={SELECTIONS.ASTRO}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          toPath={NAVIGATIONS.NAKSTRAS_SCREEN.name}
         />
         <Card
           imgSrc={icons.shop}
@@ -61,6 +67,12 @@ export default function Home() {
           imgSrc={icons.company}
           title={t(SELECTIONS.COMPANY)}
           selection={SELECTIONS.COMPANY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
+        <Card
+          imgSrc={icons.name}
+          title={t(SELECTIONS.NAME)}
+          selection={SELECTIONS.NAME}
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
       </ScrollView>
