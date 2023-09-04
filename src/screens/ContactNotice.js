@@ -32,7 +32,7 @@ export default function ContactNotice() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <CustomText text={t('For more info')} size={20} />
-        <CustomText text={t('Paid Services')} />
+        {/* <CustomText text={t('Paid Services')} /> */}
         <View style={styles.whtsapDiv}>
           <PhoneNo number="8948840344" />
           <PhoneNo number="8949988068" />
