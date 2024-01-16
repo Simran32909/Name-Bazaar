@@ -1,33 +1,39 @@
-import {FlatList, SafeAreaView} from 'react-native';
-import React from 'react';
+import {ActivityIndicator, FlatList, SafeAreaView} from 'react-native';
+import React, {useEffect} from 'react';
 import AlphabetTile from '../components/AlphabetTile';
-import {useTranslation} from 'react-i18next';
-import {LANGUAGES} from '../constants/consts';
-import {getNamesData} from '../utils/getNamesData';
+import useFirebaseData from '../hooks/useFirebaseData';
+import CustomText from '../components/common/CustomText';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
-  const {t, i18n} = useTranslation();
+  const {data, loading, error} = useFirebaseData(selection);
 
-  const selectedData = getNamesData(selection);
+  const alphabetsList = Object.keys(data).sort();
 
-  // get language
-  // console.log('current language: ', i18n.language);
-  const curLanguage = i18n.language;
-  let namesData;
-  if (curLanguage == LANGUAGES.HINDI.key)
-    namesData = selectedData[LANGUAGES.HINDI.label];
-  else namesData = selectedData[LANGUAGES.ENGLISH.label];
+  if (loading)
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <ActivityIndicator size={50} />
+      </SafeAreaView>
+    );
 
-  const alphabetsList = Object.keys(namesData);
+  if (error)
+    return (
+      <SafeAreaView>
+        <CustomText text={error} fontColor="black" size={16} />
+      </SafeAreaView>
+    );
 
   return (
     <SafeAreaView>
       <FlatList
         data={alphabetsList}
-        renderItem={({item}) => (
-          <AlphabetTile text={item} data={namesData[item]} />
-        )}
+        renderItem={({item}) => <AlphabetTile text={item} data={data[item]} />}
         numColumns={2}
         keyExtractor={(item, index) => index}
       />

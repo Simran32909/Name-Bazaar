@@ -4,17 +4,17 @@ import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
 
-export default function NameTile({data}) {
+export default function NameTile({name, meaning}) {
   const navigation = useNavigation();
 
   // since data from unique names is a string and from normal selection is a object
-  const name = data.name || data;
+  // const name = data.name || data;
 
   return (
     <TouchableWithoutFeedback
       onPress={() => {
-        if (data.name)
-          navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {data: data});
+        if (meaning)
+          navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {name, meaning});
         else navigation.navigate(NAVIGATIONS.CONTACT_NOTICE.name);
       }}>
       <View style={styles.container}>
