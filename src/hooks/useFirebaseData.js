@@ -34,6 +34,7 @@ const useFirebaseData = selection => {
   };
 
   useEffect(() => {
+    setLoading(true);
     if (selection == SELECTIONS.BOY) fetchData('boys');
     else if (selection == SELECTIONS.GIRL) fetchData('girls');
     else if (selection == SELECTIONS.UNIQUE) {
