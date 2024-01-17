@@ -1,34 +1,35 @@
-import {useTranslation} from 'react-i18next';
-import {SafeAreaView, StyleSheet, FlatList, TextInput} from 'react-native';
-import {getUniqueNamesData} from '../utils/getNamesData';
-import {LANGUAGES} from '../constants/consts';
+import {
+  SafeAreaView,
+  StyleSheet,
+  FlatList,
+  TextInput,
+  ActivityIndicator,
+} from 'react-native';
 import NameTile from '../components/NameTile';
 import {useEffect, useState} from 'react';
 import Fuse from 'fuse.js';
+import useFirebaseData from '../hooks/useFirebaseData';
+import {useTranslation} from 'react-i18next';
 
 export default function UniqueNamesList({route}) {
   const {selection} = route.params;
   const {t, i18n} = useTranslation();
 
-  const selectedData = getUniqueNamesData(selection);
+  const {data, loading, error} = useFirebaseData(selection, true);
 
-  const curLanguage = i18n.language;
-  let namesData;
-  if (curLanguage == LANGUAGES.HINDI.key)
-    namesData = selectedData[LANGUAGES.HINDI.label];
-  else namesData = selectedData[LANGUAGES.ENGLISH.label];
-
-  const [result, setResult] = useState([...namesData]);
+  const [result, setResult] = useState([]);
   const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
-    // console.log(searchString);
     const res = fuse.search(searchString).map(r => r.item);
 
-    if (searchString == '') setResult([...namesData]);
+    if (searchString == '') setResult([...data]);
     else setResult(res);
-    // console.log('res:', res);
   }, [searchString]);
+
+  useEffect(() => {
+    setResult([...data]);
+  }, [data]);
 
   const options = {
     findAllMatches: false,
@@ -36,7 +37,26 @@ export default function UniqueNamesList({route}) {
     threshold: 0.2,
   };
 
-  const fuse = new Fuse(namesData, options);
+  const fuse = new Fuse(data, options);
+
+  if (loading)
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <ActivityIndicator size={50} />
+      </SafeAreaView>
+    );
+
+  if (error)
+    return (
+      <SafeAreaView>
+        <CustomText text={error} fontColor="black" size={16} />
+      </SafeAreaView>
+    );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -50,7 +70,7 @@ export default function UniqueNamesList({route}) {
       <FlatList
         style={styles.listStyle}
         data={result}
-        renderItem={({item}) => <NameTile data={item} />}
+        renderItem={({item}) => <NameTile name={item} />}
         keyExtractor={(item, index) => index}
       />
     </SafeAreaView>
