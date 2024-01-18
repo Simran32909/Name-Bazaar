@@ -28,7 +28,7 @@ export default function UniqueNamesList({route}) {
   }, [searchString]);
 
   useEffect(() => {
-    setResult([...data]);
+    setResult([...data.sort()]);
   }, [data]);
 
   const options = {

@@ -3,12 +3,75 @@ import React, {useEffect} from 'react';
 import AlphabetTile from '../components/AlphabetTile';
 import useFirebaseData from '../hooks/useFirebaseData';
 import CustomText from '../components/common/CustomText';
+import {LANGUAGES} from '../constants/consts';
+import {useTranslation} from 'react-i18next';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
   const {data, loading, error} = useFirebaseData(selection);
+  const {t, i18n} = useTranslation();
 
-  const alphabetsList = Object.keys(data).sort();
+  // const alphabetsList = Object.keys(data).sort();
+
+  const curLanguage = i18n.language;
+
+  const hindiAlphabets = [
+    'अ',
+    'आ',
+    'इ',
+    'ई',
+    'उ',
+    'ऊ',
+    'ए',
+    'ऐ',
+    'ओ',
+    'औ',
+    'अं',
+    'अः',
+    'ऋ',
+    'ॠ',
+    'क',
+    'ख',
+    'ग',
+    'घ',
+    'ङ',
+    'च',
+    'छ',
+    'ज',
+    'झ',
+    'ञ',
+    'ट',
+    'ठ',
+    'ड',
+    'ढ',
+    'ण',
+    'त',
+    'थ',
+    'द',
+    'ध',
+    'न',
+    'प',
+    'फ',
+    'ब',
+    'भ',
+    'म',
+    'य',
+    'र',
+    'ल',
+    'व',
+    'श',
+    'ष',
+    'स',
+    'ह',
+    'क्ष',
+    'त्र',
+    'ज्ञ',
+  ];
+
+  const alphabetsList =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? Object.keys(data).sort()
+      : hindiAlphabets;
 
   if (loading)
     return (
