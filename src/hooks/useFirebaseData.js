@@ -4,12 +4,15 @@ import {db} from '../firebase/firebase';
 import {SELECTIONS} from '../constants/consts';
 import {LANGUAGES} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
+import {useNetInfo} from '@react-native-community/netinfo';
 
 const useFirebaseData = (selection, isUnique = false) => {
+  const netState = useNetInfo();
+  const {t, i18n} = useTranslation();
+
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const {t, i18n} = useTranslation();
 
   const curLanguage = i18n.language;
   let language =
@@ -51,16 +54,20 @@ const useFirebaseData = (selection, isUnique = false) => {
 
   useEffect(() => {
     setLoading(true);
-    if (!isUnique) {
-      if (selection == SELECTIONS.BOY) fetchData('boys');
-      else if (selection == SELECTIONS.GIRL) fetchData('girls');
-    } else {
-      if (selection == SELECTIONS.BOY) fetchUniqueData('boys');
-      else if (selection == SELECTIONS.GIRL) fetchUniqueData('girls');
-    }
-  }, [selection, language]);
 
-  return {data, loading, error};
+    if (netState.isConnected) {
+      // console.log('line 67:', netState.isConnected);
+      if (!isUnique) {
+        if (selection == SELECTIONS.BOY) fetchData('boys');
+        else if (selection == SELECTIONS.GIRL) fetchData('girls');
+      } else {
+        if (selection == SELECTIONS.BOY) fetchUniqueData('boys');
+        else if (selection == SELECTIONS.GIRL) fetchUniqueData('girls');
+      }
+    }
+  }, [selection, language, netState.isConnected]);
+
+  return {data, loading, error, netState};
 };
 
 export default useFirebaseData;

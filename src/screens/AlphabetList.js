@@ -8,7 +8,7 @@ import {useTranslation} from 'react-i18next';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
-  const {data, loading, error} = useFirebaseData(selection);
+  const {data, loading, error, netState} = useFirebaseData(selection);
   const {t, i18n} = useTranslation();
 
   // const alphabetsList = Object.keys(data).sort();
@@ -72,6 +72,19 @@ export default function AlphabetList({route}) {
     curLanguage == LANGUAGES.ENGLISH.key
       ? Object.keys(data).sort()
       : hindiAlphabets;
+
+  if (!netState.isConnected) {
+    return (
+      <SafeAreaView
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <CustomText
+          text="Please Connect to Internet to use the app"
+          size={18}
+          fontColor="black"
+        />
+      </SafeAreaView>
+    );
+  }
 
   if (loading)
     return (
