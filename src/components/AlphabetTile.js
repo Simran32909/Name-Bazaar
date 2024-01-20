@@ -8,7 +8,7 @@ export default function AlphabetTile({text, data}) {
   const navigation = useNavigation();
 
   const navigateTo =
-    Object.keys(data).length != 0
+    data && Object.keys(data).length != 0
       ? NAVIGATIONS.NAMES_LIST.name
       : NAVIGATIONS.CONTACT_NOTICE.name;
 

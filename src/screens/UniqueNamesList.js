@@ -10,12 +10,13 @@ import {useEffect, useState} from 'react';
 import Fuse from 'fuse.js';
 import useFirebaseData from '../hooks/useFirebaseData';
 import {useTranslation} from 'react-i18next';
+import CustomText from '../components/common/CustomText';
 
 export default function UniqueNamesList({route}) {
   const {selection} = route.params;
   const {t, i18n} = useTranslation();
 
-  const {data, loading, error} = useFirebaseData(selection, true);
+  const {data, loading, error, netState} = useFirebaseData(selection, true);
 
   const [result, setResult] = useState([]);
   const [searchString, setSearchString] = useState('');
@@ -38,6 +39,15 @@ export default function UniqueNamesList({route}) {
   };
 
   const fuse = new Fuse(data, options);
+
+  if (!netState.isConnected) {
+    return (
+      <SafeAreaView
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <CustomText text={t('No Internet')} size={18} fontColor="black" />
+      </SafeAreaView>
+    );
+  }
 
   if (loading)
     return (

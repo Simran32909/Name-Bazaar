@@ -1,5 +1,5 @@
 import {ActivityIndicator, FlatList, SafeAreaView} from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import AlphabetTile from '../components/AlphabetTile';
 import useFirebaseData from '../hooks/useFirebaseData';
 import CustomText from '../components/common/CustomText';
@@ -73,15 +73,12 @@ export default function AlphabetList({route}) {
       ? Object.keys(data).sort()
       : hindiAlphabets;
 
-  if (!netState.isConnected) {
+  if (netState.isConnected != null && !netState.isConnected) {
+    console.log('line 77: ', netState.isConnected);
     return (
       <SafeAreaView
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <CustomText
-          text="Please Connect to Internet to use the app"
-          size={18}
-          fontColor="black"
-        />
+        <CustomText text={t('No Internet')} size={18} fontColor="black" />
       </SafeAreaView>
     );
   }
