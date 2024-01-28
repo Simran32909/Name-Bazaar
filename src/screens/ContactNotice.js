@@ -1,12 +1,26 @@
-import {Image, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  ScrollView,
+  ActivityIndicator,
+} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
 import PhoneNo from '../components/PhoneNo';
+import useFirebaseData from '../hooks/useFirebaseData';
 
 export default function ContactNotice() {
   const {t} = useTranslation();
+
+  const {data, loading, error, netState} = useFirebaseData(
+    'Phone Nos',
+    false,
+    true,
+  );
 
   // const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
   const noOfPoints = [1, 2, 3, 6, 7, 8, 9, 10, 11, 12];
@@ -28,14 +42,44 @@ export default function ContactNotice() {
     </View>
   );
 
+  if (netState.isConnected != null && !netState.isConnected) {
+    // console.log('line 77: ', netState.isConnected);
+    return (
+      <SafeAreaView
+        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <CustomText text={t('No Internet')} size={18} fontColor="black" />
+      </SafeAreaView>
+    );
+  }
+
+  if (loading)
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <ActivityIndicator size={50} />
+      </SafeAreaView>
+    );
+
+  if (error)
+    return (
+      <SafeAreaView>
+        <CustomText text={error} fontColor="black" size={16} />
+      </SafeAreaView>
+    );
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <CustomText text={t('For more info')} size={20} />
         {/* <CustomText text={t('Paid Services')} /> */}
         <View style={styles.whtsapDiv}>
-          <PhoneNo number="8948840344" />
-          <PhoneNo number="8949988068" />
+          {Object.values(data).map((phoneNo, index) => (
+            <PhoneNo key={index} number={phoneNo} />
+          ))}
         </View>
         <CustomText
           text={t('Reveal Destiny')}

@@ -16,7 +16,11 @@ export default function UniqueNamesList({route}) {
   const {selection} = route.params;
   const {t, i18n} = useTranslation();
 
-  const {data, loading, error, netState} = useFirebaseData(selection, true);
+  const {data, loading, error, netState} = useFirebaseData(
+    selection,
+    true,
+    false,
+  );
 
   const [result, setResult] = useState([]);
   const [searchString, setSearchString] = useState('');

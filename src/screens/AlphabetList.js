@@ -8,7 +8,11 @@ import {useTranslation} from 'react-i18next';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
-  const {data, loading, error, netState} = useFirebaseData(selection);
+  const {data, loading, error, netState} = useFirebaseData(
+    selection,
+    false,
+    false,
+  );
   const {t, i18n} = useTranslation();
 
   // const alphabetsList = Object.keys(data).sort();

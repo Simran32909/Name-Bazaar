@@ -6,7 +6,7 @@ import {LANGUAGES} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
 import {useNetInfo} from '@react-native-community/netinfo';
 
-const useFirebaseData = (selection, isUnique = false) => {
+const useFirebaseData = (selection, isUnique = false, isStaticData = false) => {
   const netState = useNetInfo();
   const {t, i18n} = useTranslation();
 
@@ -52,6 +52,22 @@ const useFirebaseData = (selection, isUnique = false) => {
     }
   };
 
+  const fetchStaticData = async document => {
+    try {
+      const docRef = doc(db, 'data', document);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) setData(docSnap.data());
+      else console.log('No such document!');
+
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setError(error);
+      setLoading(false);
+    }
+  };
+
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
@@ -61,7 +77,9 @@ const useFirebaseData = (selection, isUnique = false) => {
 
     if (netState.isConnected) {
       // console.log('line 67:', netState.isConnected);
-      if (!isUnique) {
+      if (isStaticData) {
+        fetchStaticData(selection);
+      } else if (!isUnique) {
         if (selection == SELECTIONS.BOY) fetchData('boys');
         else if (selection == SELECTIONS.GIRL) fetchData('girls');
       } else {
