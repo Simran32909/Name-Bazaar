@@ -110,8 +110,8 @@ export default function ContactNotice() {
         <CustomText text={t('Our Experts')} size={20} />
         <CustomText text={t('Then what are you waiting')} size={20} />
         <View style={styles.whtsapDiv}>
-          {noOfPoints.map(val => (
-            <Points text={`P${val}`} key={val} />
+          {Object.values(data).map((phoneNo, index) => (
+            <PhoneNo key={index} number={phoneNo} />
           ))}
         </View>
         <CustomText text={t('Destiny in your hands')} size={20} />
