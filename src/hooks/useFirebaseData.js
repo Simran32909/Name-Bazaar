@@ -30,7 +30,7 @@ const useFirebaseData = (selection, isUnique = false) => {
 
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setError(error);
       setLoading(false);
     }
@@ -51,6 +51,10 @@ const useFirebaseData = (selection, isUnique = false) => {
       setLoading(false);
     }
   };
+
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
 
   useEffect(() => {
     setLoading(true);

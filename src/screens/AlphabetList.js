@@ -68,13 +68,25 @@ export default function AlphabetList({route}) {
     'ज्ञ',
   ];
 
+  // data is nested in the form of :
+  // A : {
+  //  "arjun" : {
+  //     name : "",
+  //     meaning : "",
+  //     etymology: '',
+  //     zodiac: '',
+  //     horoscope: '',
+  //     'famous personalities': '',
+  //   },
+  // }
+
   const alphabetsList =
     curLanguage == LANGUAGES.ENGLISH.key
       ? Object.keys(data).sort()
       : hindiAlphabets;
 
   if (netState.isConnected != null && !netState.isConnected) {
-    console.log('line 77: ', netState.isConnected);
+    // console.log('line 77: ', netState.isConnected);
     return (
       <SafeAreaView
         style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -106,6 +118,7 @@ export default function AlphabetList({route}) {
     <SafeAreaView>
       <FlatList
         data={alphabetsList}
+        //here item is alphabets -> A,B,C ......
         renderItem={({item}) => <AlphabetTile text={item} data={data[item]} />}
         numColumns={2}
         keyExtractor={(item, index) => index}

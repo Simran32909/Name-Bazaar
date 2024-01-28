@@ -12,8 +12,6 @@
   "Information": "Information",
   "Direct Contact": "Direct Contact",
   "Privacy Policy": "Privacy Policy",
-  "Name": "Name",
-  "Meaning:": "Meaning",
   "Unique Name (Boys/Girls)": "Unique Name (Boys/Girls)",
   "Name According to Constellation": "Name According to Constellation & Zodiac",
   "Search Name": "Search",
@@ -44,5 +42,11 @@
   "Info Msg": "This app has been designed to cater to the requirements of our society. The app's complete rights are held by jamadagni257@gmail.com\nAny form of unauthorized use is prohibited.\nVersion:1.0",
   "For more info": "For more information whatsapp us on the following number 👇",
   "Paid Services": "(These services are paid)",
-  "No Internet": "Please Connect to Internet to use the app"
+  "No Internet": "Please Connect to Internet to use the app",
+  "Name": "name",
+  "Meaning": "meaning",
+  "Etymology": "etymology",
+  "Zodiac": "zodiac",
+  "Horoscope": "horoscope",
+  "Famous Personalities": "famous personalities"
 }

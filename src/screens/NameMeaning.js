@@ -4,9 +4,37 @@ import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
 
 export default function NameMeaning({route}) {
-  const {name, meaning} = route.params;
+  const {nameData} = route.params;
   const {t} = useTranslation();
 
+  // data coming here is of the form
+  // {
+  //     name : "",
+  //     meaning : "",
+  //     etymology: '',
+  //     zodiac: '',
+  //     horoscope: '',
+  //     'famous personalities': '',
+  // },
+
+  const Details = ({label, data}) => {
+    return (
+      <View>
+        <CustomText
+          text={`${t(label)}: `}
+          fontColor="white"
+          size={35}
+          weight="bold"
+        />
+        <CustomText
+          text={data}
+          fontColor="white"
+          size={28}
+          textAlignment="justify"
+        />
+      </View>
+    );
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.nameContainer}>
@@ -16,23 +44,17 @@ export default function NameMeaning({route}) {
           size={35}
           weight="bold"
         />
-        <CustomText text={name} fontColor="white" size={28} />
+        <CustomText text={nameData.name} fontColor="white" size={28} />
       </View>
       <View style={styles.divider} />
-      <View style={styles.meaningContainer}>
-        <CustomText
-          text={`${t('Meaning')}: `}
-          fontColor="white"
-          size={35}
-          weight="bold"
-        />
-        <CustomText
-          text={meaning}
-          fontColor="white"
-          size={28}
-          textAlignment="justify"
-        />
-      </View>
+      <Details label={'Meaning'} data={nameData['meaning']} />
+      <Details label={'Etymology'} data={nameData['etymology']} />
+      <Details label={'Zodiac'} data={nameData['zodiac']} />
+      <Details label={'Horoscope'} data={nameData['horoscope']} />
+      <Details
+        label={'Famous Personalities'}
+        data={nameData['famous personalities']}
+      />
     </SafeAreaView>
   );
 }

@@ -3,15 +3,28 @@ import React from 'react';
 import NameTile from '../components/NameTile';
 
 export default function NamesList({route}) {
-  const {names} = route.params;
+  const {namesObj} = route.params;
 
   //since names is an object therefore we need its keys which is an array to render the flatlist
-  const nameKeys = Object.keys(names).sort();
+  const nameKeys = Object.keys(namesObj).sort();
+
+  // data coming here is of the form
+  // {
+  //  "arjun" : {
+  //     name : "",
+  //     meaning : "",
+  //     etymology: '',
+  //     zodiac: '',
+  //     horoscope: '',
+  //     'famous personalities': '',
+  //   },
+  // }
+
   return (
     <View>
       <FlatList
         data={nameKeys}
-        renderItem={({item}) => <NameTile name={item} meaning={names[item]} />}
+        renderItem={({item}) => <NameTile nameData={namesObj[item]} />}
         keyExtractor={(item, index) => index}
       />
     </View>

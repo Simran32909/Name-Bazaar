@@ -12,11 +12,23 @@ export default function AlphabetTile({text, data}) {
       ? NAVIGATIONS.NAMES_LIST.name
       : NAVIGATIONS.CONTACT_NOTICE.name;
 
+  // data coming here is of the form
+  // {
+  //  "arjun" : {
+  //     name : "",
+  //     meaning : "",
+  //     etymology: '',
+  //     zodiac: '',
+  //     horoscope: '',
+  //     'famous personalities': '',
+  //   },
+  // }
+
   return (
     <TouchableWithoutFeedback
       onPress={() =>
         navigation.navigate(navigateTo, {
-          names: data,
+          namesObj: data,
         })
       }>
       <View style={styles.container}>
