@@ -1,10 +1,10 @@
-import {ActivityIndicator, FlatList, SafeAreaView} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 import React from 'react';
 import AlphabetTile from '../components/AlphabetTile';
 import useFirebaseData from '../hooks/useFirebaseData';
-import CustomText from '../components/common/CustomText';
 import {LANGUAGES, SELECTIONS} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
+import ErrorWrapper from '../components/ErrorWrapper';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
@@ -95,44 +95,19 @@ export default function AlphabetList({route}) {
       ? Object.keys(data).sort()
       : hindiAlphabets;
 
-  if (netState.isConnected != null && !netState.isConnected) {
-    // console.log('line 77: ', netState.isConnected);
-    return (
-      <SafeAreaView
-        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <CustomText text={t('No Internet')} size={18} fontColor="black" />
-      </SafeAreaView>
-    );
-  }
-
-  if (loading)
-    return (
-      <SafeAreaView
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <ActivityIndicator size={50} />
-      </SafeAreaView>
-    );
-
-  if (error)
-    return (
-      <SafeAreaView>
-        <CustomText text={error} fontColor="black" size={16} />
-      </SafeAreaView>
-    );
-
   return (
-    <SafeAreaView>
-      <FlatList
-        data={alphabetsList}
-        //here item is alphabets -> A,B,C ......
-        renderItem={({item}) => <AlphabetTile text={item} data={data[item]} />}
-        numColumns={2}
-        keyExtractor={(item, index) => index}
-      />
-    </SafeAreaView>
+    <ErrorWrapper loading={loading} error={error} netState={netState}>
+      <SafeAreaView>
+        <FlatList
+          data={alphabetsList}
+          //here item is alphabets -> A,B,C ......
+          renderItem={({item}) => (
+            <AlphabetTile text={item} data={data[item]} />
+          )}
+          numColumns={2}
+          keyExtractor={(item, index) => index}
+        />
+      </SafeAreaView>
+    </ErrorWrapper>
   );
 }

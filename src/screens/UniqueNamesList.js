@@ -1,17 +1,11 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  FlatList,
-  TextInput,
-  ActivityIndicator,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, FlatList, TextInput} from 'react-native';
 import NameTile from '../components/NameTile';
 import {useEffect, useState} from 'react';
 import Fuse from 'fuse.js';
 import useFirebaseData from '../hooks/useFirebaseData';
 import {useTranslation} from 'react-i18next';
-import CustomText from '../components/common/CustomText';
 import {LANGUAGES, SELECTIONS} from '../constants/consts';
+import ErrorWrapper from '../components/ErrorWrapper';
 
 export default function UniqueNamesList({route}) {
   const {selection} = route.params;
@@ -54,50 +48,24 @@ export default function UniqueNamesList({route}) {
 
   const fuse = new Fuse(data, options);
 
-  if (!netState.isConnected) {
-    return (
-      <SafeAreaView
-        style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <CustomText text={t('No Internet')} size={18} fontColor="black" />
-      </SafeAreaView>
-    );
-  }
-
-  if (loading)
-    return (
-      <SafeAreaView
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <ActivityIndicator size={50} />
-      </SafeAreaView>
-    );
-
-  if (error)
-    return (
-      <SafeAreaView>
-        <CustomText text={error} fontColor="black" size={16} />
-      </SafeAreaView>
-    );
-
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-        style={styles.searchBox}
-        onChangeText={val => setSearchString(val)}
-        value={searchString}
-        placeholder={t('Search Name')}
-        placeholderTextColor="#a69f9f"
-      />
-      <FlatList
-        style={styles.listStyle}
-        data={result}
-        renderItem={({item}) => <NameTile name={item} />}
-        keyExtractor={(item, index) => index}
-      />
-    </SafeAreaView>
+    <ErrorWrapper loading={loading} error={error} netState={netState}>
+      <SafeAreaView style={styles.container}>
+        <TextInput
+          style={styles.searchBox}
+          onChangeText={val => setSearchString(val)}
+          value={searchString}
+          placeholder={t('Search Name')}
+          placeholderTextColor="#a69f9f"
+        />
+        <FlatList
+          style={styles.listStyle}
+          data={result}
+          renderItem={({item}) => <NameTile name={item} />}
+          keyExtractor={(item, index) => index}
+        />
+      </SafeAreaView>
+    </ErrorWrapper>
   );
 }
 
