@@ -11,15 +11,25 @@ import Fuse from 'fuse.js';
 import useFirebaseData from '../hooks/useFirebaseData';
 import {useTranslation} from 'react-i18next';
 import CustomText from '../components/common/CustomText';
+import {LANGUAGES, SELECTIONS} from '../constants/consts';
 
 export default function UniqueNamesList({route}) {
   const {selection} = route.params;
   const {t, i18n} = useTranslation();
 
+  const curLanguage = i18n.language;
+  let language =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? LANGUAGES.ENGLISH.label
+      : LANGUAGES.HINDI.label;
+
+  let document;
+  if (selection == SELECTIONS.BOY) document = 'boys' + ' ' + language;
+  else if (selection == SELECTIONS.GIRL) document = 'girls' + ' ' + language;
+
   const {data, loading, error, netState} = useFirebaseData(
-    selection,
-    true,
-    false,
+    'unique names',
+    document,
   );
 
   const [result, setResult] = useState([]);

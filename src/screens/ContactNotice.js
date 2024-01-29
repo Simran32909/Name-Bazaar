@@ -16,11 +16,7 @@ import useFirebaseData from '../hooks/useFirebaseData';
 export default function ContactNotice() {
   const {t} = useTranslation();
 
-  const {data, loading, error, netState} = useFirebaseData(
-    'Phone Nos',
-    false,
-    true,
-  );
+  const {data, loading, error, netState} = useFirebaseData('data', 'Phone Nos');
 
   // const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
   const noOfPoints = [1, 2, 3, 6, 7, 8, 9, 10, 11, 12];

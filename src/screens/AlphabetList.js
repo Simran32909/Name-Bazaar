@@ -3,21 +3,27 @@ import React from 'react';
 import AlphabetTile from '../components/AlphabetTile';
 import useFirebaseData from '../hooks/useFirebaseData';
 import CustomText from '../components/common/CustomText';
-import {LANGUAGES} from '../constants/consts';
+import {LANGUAGES, SELECTIONS} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
 
 export default function AlphabetList({route}) {
   const {selection} = route.params;
-  const {data, loading, error, netState} = useFirebaseData(
-    selection,
-    false,
-    false,
-  );
   const {t, i18n} = useTranslation();
-
-  // const alphabetsList = Object.keys(data).sort();
-
   const curLanguage = i18n.language;
+
+  let collection;
+  if (selection == SELECTIONS.BOY) collection = 'boys';
+  else if (selection == SELECTIONS.GIRL) collection = 'girls';
+
+  let language =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? LANGUAGES.ENGLISH.label
+      : LANGUAGES.HINDI.label;
+
+  const {data, loading, error, netState} = useFirebaseData(
+    collection,
+    language,
+  );
 
   const hindiAlphabets = [
     'अ',
