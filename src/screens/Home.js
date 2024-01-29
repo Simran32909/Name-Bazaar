@@ -58,22 +58,16 @@ export default function Home() {
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
-          imgSrc={icons.factory}
-          title={t(SELECTIONS.FACTORY)}
-          selection={SELECTIONS.FACTORY}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
           imgSrc={icons.company}
-          title={t(SELECTIONS.COMPANY)}
+          title={t(SELECTIONS.FACTORY_COMPANY)}
           selection={SELECTIONS.COMPANY}
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
-          imgSrc={icons.name}
-          title={t(SELECTIONS.NAME)}
-          selection={SELECTIONS.NAME}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          imgSrc={icons.daily_updates}
+          title={t(SELECTIONS.DAILY_UPDATES)}
+          selection={SELECTIONS.DAILY_UPDATES}
+          toPath={NAVIGATIONS.DAILY_UPDATES.name}
         />
       </ScrollView>
     </SafeAreaView>

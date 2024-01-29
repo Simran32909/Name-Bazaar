@@ -6,8 +6,10 @@
   "School": "School Name",
   "Factory": "Factory Name",
   "Company": "Company Name",
+  "Factory/Company": "Factory/Company Name",
   "Baby Name": "Baby Name Using Parents Name",
   "Name of Anything": "Name of Anything",
+  "Daily Updates": "Daily Updates",
   "Home": "Home",
   "Information": "Information",
   "Direct Contact": "Direct Contact",
@@ -48,5 +50,6 @@
   "Etymology": "etymology",
   "Zodiac": "zodiac",
   "Horoscope": "horoscope",
-  "Famous Personalities": "famous personalities"
+  "Famous Personalities": "famous personalities",
+  "Daily Updates Msg": "No daily updates📣"
 }
