@@ -11,6 +11,10 @@ export default function UniqueNamesList({route}) {
   const {selection} = route.params;
   const {t, i18n} = useTranslation();
 
+  const [result, setResult] = useState([]);
+  const [searchString, setSearchString] = useState('');
+  const [searchData, setSearchData] = useState([]);
+
   const curLanguage = i18n.language;
   let language =
     curLanguage == LANGUAGES.ENGLISH.key
@@ -26,19 +30,31 @@ export default function UniqueNamesList({route}) {
     document,
   );
 
-  const [result, setResult] = useState([]);
-  const [searchString, setSearchString] = useState('');
-
   useEffect(() => {
     const res = fuse.search(searchString).map(r => r.item);
 
-    if (searchString == '') setResult([...data]);
+    if (searchString == '') setResult([...searchData]);
     else setResult(res);
   }, [searchString]);
 
   useEffect(() => {
-    setResult([...data.sort()]);
+    let obj = [];
+    if (data) {
+      Object.keys(data).forEach(alpha => {
+        if (data[alpha]) {
+          Object.keys(data[alpha]).forEach(n => {
+            obj = [...obj, data[alpha][n]['name']];
+          });
+        }
+      });
+      obj.sort();
+    }
+    setSearchData([...obj]);
   }, [data]);
+
+  useEffect(() => {
+    setResult([...searchData]);
+  }, [searchData]);
 
   const options = {
     findAllMatches: false,
@@ -46,7 +62,7 @@ export default function UniqueNamesList({route}) {
     threshold: 0.2,
   };
 
-  const fuse = new Fuse(data, options);
+  const fuse = new Fuse(searchData, options);
 
   return (
     <ErrorWrapper loading={loading} error={error} netState={netState}>
@@ -61,7 +77,11 @@ export default function UniqueNamesList({route}) {
         <FlatList
           style={styles.listStyle}
           data={result}
-          renderItem={({item}) => <NameTile name={item} />}
+          renderItem={({item}) => {
+            if (!data || !data[item[0]] || !data[item[0]][item]) return null;
+
+            return <NameTile nameData={data[item[0]][item]} />;
+          }}
           keyExtractor={(item, index) => index}
         />
       </SafeAreaView>
