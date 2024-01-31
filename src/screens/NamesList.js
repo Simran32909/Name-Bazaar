@@ -11,7 +11,6 @@ export default function NamesList({route}) {
   // data coming here is of the form
   // {
   //  "arjun" : {
-  //     name : "",
   //     meaning : "",
   //     etymology: '',
   //     zodiac: '',
@@ -24,7 +23,9 @@ export default function NamesList({route}) {
     <View>
       <FlatList
         data={nameKeys}
-        renderItem={({item}) => <NameTile nameData={namesObj[item]} />}
+        renderItem={({item}) => (
+          <NameTile nameData={namesObj[item]} name={item} />
+        )}
         keyExtractor={(item, index) => index}
       />
     </View>

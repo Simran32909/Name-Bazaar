@@ -81,7 +81,6 @@ export default function AlphabetList({route}) {
   // data is nested in the form of :
   // A : {
   //  "arjun" : {
-  //     name : "",
   //     meaning : "",
   //     etymology: '',
   //     zodiac: '',

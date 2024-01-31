@@ -4,12 +4,11 @@ import {useNavigation} from '@react-navigation/native';
 import NAVIGATIONS from '../constants/navigationConstants';
 import {memo} from 'react';
 
-const NameTile = ({nameData}) => {
+const NameTile = ({nameData, name}) => {
   const navigation = useNavigation();
 
   // data coming here is of the form
   // {
-  //     name : "",
   //     meaning : "",
   //     etymology: '',
   //     zodiac: '',
@@ -24,10 +23,10 @@ const NameTile = ({nameData}) => {
         // if (nameData.meaning)
         //   navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {nameData});
         // else navigation.navigate(NAVIGATIONS.CONTACT_NOTICE.name);
-        navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {nameData});
+        navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {nameData, name});
       }}>
       <View style={styles.container}>
-        <CustomText text={nameData.name} size={40} fontColor="white" />
+        <CustomText text={name} size={40} fontColor="white" />
       </View>
     </TouchableWithoutFeedback>
   );

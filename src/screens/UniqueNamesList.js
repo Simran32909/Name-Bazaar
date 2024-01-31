@@ -33,7 +33,7 @@ export default function UniqueNamesList({route}) {
   useEffect(() => {
     const res = fuse.search(searchString).map(r => r.item);
 
-    if (searchString == '') setResult([...searchData]);
+    if (searchString == '') setResult(searchData);
     else setResult(res);
   }, [searchString]);
 
@@ -41,19 +41,15 @@ export default function UniqueNamesList({route}) {
     let obj = [];
     if (data) {
       Object.keys(data).forEach(alpha => {
-        if (data[alpha]) {
-          Object.keys(data[alpha]).forEach(n => {
-            obj = [...obj, data[alpha][n]['name']];
-          });
-        }
+        if (data[alpha]) obj = [...obj, ...Object.keys(data[alpha])];
       });
       obj.sort();
     }
-    setSearchData([...obj]);
+    setSearchData(obj);
   }, [data]);
 
   useEffect(() => {
-    setResult([...searchData]);
+    setResult(searchData);
   }, [searchData]);
 
   const options = {
@@ -80,7 +76,7 @@ export default function UniqueNamesList({route}) {
           renderItem={({item}) => {
             if (!data || !data[item[0]] || !data[item[0]][item]) return null;
 
-            return <NameTile nameData={data[item[0]][item]} />;
+            return <NameTile nameData={data[item[0]][item]} name={item} />;
           }}
           keyExtractor={(item, index) => index}
         />

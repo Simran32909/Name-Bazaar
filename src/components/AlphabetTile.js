@@ -15,7 +15,6 @@ export default function AlphabetTile({text, data}) {
   // data coming here is of the form
   // {
   //  "arjun" : {
-  //     name : "",
   //     meaning : "",
   //     etymology: '',
   //     zodiac: '',

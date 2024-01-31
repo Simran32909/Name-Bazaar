@@ -4,12 +4,11 @@ import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
 
 export default function NameMeaning({route}) {
-  const {nameData} = route.params;
+  const {nameData, name} = route.params;
   const {t} = useTranslation();
 
   // data coming here is of the form
   // {
-  //     name : "",
   //     meaning : "",
   //     etymology: '',
   //     zodiac: '',
@@ -44,7 +43,7 @@ export default function NameMeaning({route}) {
           size={35}
           weight="bold"
         />
-        <CustomText text={nameData.name} fontColor="white" size={28} />
+        <CustomText text={name} fontColor="white" size={28} />
       </View>
       <View style={styles.divider} />
       <Details label={'Meaning'} data={nameData['meaning']} />
