@@ -7,9 +7,6 @@ import {memo} from 'react';
 const NameTile = ({nameData}) => {
   const navigation = useNavigation();
 
-  // since data from unique names is a string and from normal selection is an object
-  // const name = data.name || data;
-
   // data coming here is of the form
   // {
   //     name : "",
@@ -23,6 +20,7 @@ const NameTile = ({nameData}) => {
   return (
     <TouchableWithoutFeedback
       onPress={() => {
+        // to show contact us screen when you click on unique names
         // if (nameData.meaning)
         //   navigation.navigate(NAVIGATIONS.NAMES_MEANING.name, {nameData});
         // else navigation.navigate(NAVIGATIONS.CONTACT_NOTICE.name);
