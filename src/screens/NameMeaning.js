@@ -2,10 +2,13 @@ import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
+import {LANGUAGES} from '../constants/consts';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export default function NameMeaning({route}) {
   const {nameData, name} = route.params;
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const curLanguage = i18n.language;
 
   // data coming here is of the form
   // {
@@ -16,9 +19,27 @@ export default function NameMeaning({route}) {
   //     'famous personalities': '',
   // },
 
-  const Details = ({label, data}) => {
+  const labels =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? ['meaning', 'etymology', 'zodiac', 'horoscope', 'famous personalities']
+      : ['अर्थ', 'व्युत्पत्ति', 'राशि', 'राशिफल', 'प्रसिद्ध व्यक्तित्व'];
+
+  const newLabels = Object.keys(nameData).filter(
+    label => !labels.includes(label.toLowerCase().trim()),
+  );
+  // console.log('labels: ', labels);
+  // console.log('new labels: ', newLabels);
+
+  const Details = ({label, data, customStyle = {}}) => {
     return (
-      <View>
+      <View
+        style={{
+          customStyle,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}>
         <CustomText
           text={`${t(label)}: `}
           fontColor="white"
@@ -34,26 +55,36 @@ export default function NameMeaning({route}) {
       </View>
     );
   };
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.nameContainer}>
-        <CustomText
-          text={`${t('Name')}: `}
-          fontColor="white"
-          size={35}
-          weight="bold"
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: 'center',
+          gap: 20,
+        }}>
+        <Details
+          label={'Name'}
+          data={name}
+          customStyle={styles.nameContainer}
         />
-        <CustomText text={name} fontColor="white" size={28} />
-      </View>
-      <View style={styles.divider} />
-      <Details label={'Meaning'} data={nameData['meaning']} />
-      <Details label={'Etymology'} data={nameData['etymology']} />
-      <Details label={'Zodiac'} data={nameData['zodiac']} />
-      <Details label={'Horoscope'} data={nameData['horoscope']} />
-      <Details
-        label={'Famous Personalities'}
-        data={nameData['famous personalities']}
-      />
+        <View style={styles.divider} />
+        {/* <Details label={'Meaning'} data={nameData['meaning']} />
+        <Details label={'Etymology'} data={nameData['etymology']} />
+        <Details label={'Zodiac'} data={nameData['zodiac']} />
+        <Details label={'Horoscope'} data={nameData['horoscope']} />
+        <Details
+          label={'Famous Personalities'}
+          data={nameData['famous personalities']}
+        /> */}
+        {labels.map((label, index) => (
+          <Details key={index} label={label} data={nameData[label]} />
+        ))}
+        {newLabels.map((label, index) => (
+          <Details key={index} label={label} data={nameData[label]} />
+        ))}
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -62,7 +93,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#2196F3',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     gap: 20,
     // alignItems: 'center',
     paddingVertical: 20,
