@@ -43,6 +43,9 @@ const NAVIGATIONS = {
   DAILY_UPDATES: {
     name: 'dailyupdates',
   },
+  RASHI_CALCULATION: {
+    name: 'rashicalculationscreen',
+  },
 };
 
 export default NAVIGATIONS;

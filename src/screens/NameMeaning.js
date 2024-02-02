@@ -4,6 +4,7 @@ import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
 import {LANGUAGES} from '../constants/consts';
 import {ScrollView} from 'react-native-gesture-handler';
+import Details from '../components/Details';
 
 export default function NameMeaning({route}) {
   const {nameData, name} = route.params;
@@ -30,32 +31,6 @@ export default function NameMeaning({route}) {
   // console.log('labels: ', labels);
   // console.log('new labels: ', newLabels);
 
-  const Details = ({label, data, customStyle = {}}) => {
-    return (
-      <View
-        style={{
-          customStyle,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-        }}>
-        <CustomText
-          text={`${t(label)}: `}
-          fontColor="white"
-          size={35}
-          weight="bold"
-        />
-        <CustomText
-          text={data}
-          fontColor="white"
-          size={28}
-          textAlignment="justify"
-        />
-      </View>
-    );
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -65,9 +40,9 @@ export default function NameMeaning({route}) {
           gap: 20,
         }}>
         <Details
-          label={'Name'}
+          label={`${t('Name')}`}
           data={name}
-          customStyle={styles.nameContainer}
+          // customStyle={styles.nameContainer}
         />
         <View style={styles.divider} />
         {/* <Details label={'Meaning'} data={nameData['meaning']} />

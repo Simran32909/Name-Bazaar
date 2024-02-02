@@ -16,6 +16,7 @@ import UniqueNamesList from './src/screens/UniqueNamesList';
 import ContactNotice from './src/screens/ContactNotice';
 import NakstrasScreen from './src/screens/NakstrasScreen';
 import DailyUpdates from './src/screens/DailyUpdates';
+import RakshiCalculationScreen from './src/screens/RakshiCalculationScreen';
 
 const Stack = createStackNavigator();
 
@@ -111,6 +112,11 @@ function App() {
             <Stack.Screen
               name={NAVIGATIONS.DAILY_UPDATES.name}
               component={DailyUpdates}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.RASHI_CALCULATION.name}
+              component={RakshiCalculationScreen}
               options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>

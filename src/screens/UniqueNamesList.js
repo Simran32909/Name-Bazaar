@@ -86,20 +86,24 @@ export default function UniqueNamesList({route}) {
 }
 
 const styles = StyleSheet.create({
-  container: {alignItems: 'center', paddingTop: 16},
+  container: {
+    alignItems: 'center',
+    paddingTop: 16,
+    // backgroundColor: '#2196F3'
+  },
   searchBox: {
     color: 'black',
-    padding: 0,
+    // padding: 0,
     margin: 0,
     fontSize: 30,
+    paddingVertical: 5,
     paddingHorizontal: 12,
     marginBottom: 16,
     width: '90%',
-    // flexDirection: 'row',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    borderColor: 'black',
+    // backgroundColor: 'white',
+    borderColor: 'grey',
     borderWidth: 1,
+    borderRadius: 10,
   },
   listStyle: {
     width: '100%',
