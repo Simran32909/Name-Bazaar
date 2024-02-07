@@ -16,6 +16,7 @@
   "Privacy Policy": "Privacy Policy",
   "Unique Name (Boys/Girls)": "Unique Name (Boys/Girls)",
   "Name According to Constellation": "Name According to Constellation & Zodiac",
+  "Rashi/Nakshatra from Name": "Know the Zodiac Sign and Constellation of your Name",
   "Search Name": "Search",
   "Share App": "Share App!",
   "Rate Our App": "Rate App!",
@@ -92,5 +93,7 @@
   "शतभिषा": "Shatabisha",
   "पूर्वाभाद्रपद": "Purvabhadra",
   "उत्तराभाद्रपद": "Uttarabhadra",
-  "रेवती": "Revat"
+  "रेवती": "Revat",
+  "Cannot get your zodiac": "Cannot get your zodiac",
+  "Cannot get your nakshatra": "Cannot get your nakshatra"
 }

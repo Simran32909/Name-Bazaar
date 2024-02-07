@@ -7,7 +7,7 @@ const SELECTIONS = {
   COMPANY: 'Company',
   FACTORY_COMPANY: 'Factory/Company',
   UNIQUE: 'Unique Name (Boys/Girls)',
-  ASTRO: 'Name According to Constellation',
+  ASTRO: 'Rashi/Nakshatra from Name',
   BABY: 'Baby Name',
   NAME: 'Name of Anything',
   DAILY_UPDATES: 'Daily Updates',
