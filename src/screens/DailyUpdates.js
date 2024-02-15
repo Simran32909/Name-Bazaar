@@ -1,9 +1,10 @@
-import {SafeAreaView, FlatList, StyleSheet} from 'react-native';
-import CustomText from '../components/common/CustomText';
+import {ScrollView, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import useFirebaseData from '../hooks/useFirebaseData';
 import {LANGUAGES} from '../constants/consts';
 import ErrorWrapper from '../components/ErrorWrapper';
+import Details from '../components/Details';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const DailyUpdates = () => {
   const {t, i18n} = useTranslation();
@@ -18,32 +19,48 @@ const DailyUpdates = () => {
       ? LANGUAGES.ENGLISH.label
       : LANGUAGES.HINDI.label;
 
+  // useEffect(() => {
+  //   console.log(data);
+  //   console.log('sdas');
+  // }, [data]);
+
+  const labels =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? [
+          "Today's tithi",
+          "Today's motivational quote",
+          "Today's history",
+          'Sankalpa path',
+          'Something else',
+        ]
+      : [
+          'आज की तिथि',
+          'आज का प्रेरक वाक्य',
+          '⁠आज का इतिहास',
+          'संकल्प पाठ',
+          '⁠कुछ अन्य',
+        ];
+
+  // console.log(labels);
+
   return (
     <ErrorWrapper loading={loading} error={error} netState={netState}>
-      <SafeAreaView
-        style={
-          data?.[language]?.length != 0
-            ? styles.container
-            : [
-                styles.container,
-                {justifyContent: 'center', alignItems: 'center'},
-              ]
-        }>
-        {data?.[language]?.length != 0 ? (
-          <FlatList
-            data={data[language]}
-            keyExtractor={(item, index) => index}
-            renderItem={({item, index}) => (
-              <CustomText text={`${index + 1}: ${item}`} size={28} />
-            )}
-          />
-        ) : (
-          <CustomText
-            text={t('Daily Updates Msg')}
-            size={24}
-            fontColor={'grey'}
-          />
-        )}
+      <SafeAreaView style={styles.container}>
+        <ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            justifyContent: 'center',
+            gap: 45,
+          }}>
+          {labels.map((item, index) => (
+            <Details
+              key={index}
+              label={item}
+              labelSize={28}
+              data={data?.[language]?.[item]}
+            />
+          ))}
+        </ScrollView>
       </SafeAreaView>
     </ErrorWrapper>
   );
@@ -53,8 +70,12 @@ export default DailyUpdates;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
     flex: 1,
-    padding: 20,
+    backgroundColor: '#2196F3',
+    // justifyContent: 'center',
+    // gap: 20,
+    // alignItems: 'center',
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
 });

@@ -10,6 +10,7 @@ const Details = ({
   isFirstLetterCapital = true,
   customStyle = {},
   isDataArray = false,
+  labelSize = null,
 }) => {
   const {t, i18n} = useTranslation();
   const curLang = i18n.language;
@@ -38,7 +39,7 @@ const Details = ({
             : labelWithColon
         }
         fontColor="white"
-        size={35}
+        size={labelSize || 35}
         weight="bold"
       />
       {isDataArray ? (

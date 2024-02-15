@@ -55,7 +55,8 @@ export default function NameMeaning({route}) {
           data={nameData['famous personalities']}
         /> */}
         {labels.map((label, index) =>
-          label == 'famous personalities' || label == 'प्रसिद्ध व्यक्तित्व' ? (
+          label.toLowerCase().trim() == 'famous personalities' ||
+          label.toLowerCase().trim() == 'प्रसिद्ध व्यक्तित्व' ? (
             <View
               key={index}
               style={{
@@ -66,7 +67,7 @@ export default function NameMeaning({route}) {
               }}>
               <CustomText
                 text={
-                  label == 'famous personalities'
+                  label.toLowerCase().trim() == 'famous personalities'
                     ? 'Famous Personalities: '
                     : label + ': '
                 }
