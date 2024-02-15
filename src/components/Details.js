@@ -9,6 +9,7 @@ const Details = ({
   data,
   isFirstLetterCapital = true,
   customStyle = {},
+  isDataArray = false,
 }) => {
   const {t, i18n} = useTranslation();
   const curLang = i18n.language;
@@ -40,12 +41,26 @@ const Details = ({
         size={35}
         weight="bold"
       />
-      <CustomText
-        text={data}
-        fontColor="white"
-        size={28}
-        textAlignment="justify"
-      />
+      {isDataArray ? (
+        <View style={{width: '100%'}}>
+          {data.map((val, index) => (
+            <CustomText
+              key={index}
+              text={val}
+              fontColor="white"
+              size={28}
+              textAlignment="justify"
+            />
+          ))}
+        </View>
+      ) : (
+        <CustomText
+          text={data}
+          fontColor="white"
+          size={28}
+          textAlignment="justify"
+        />
+      )}
     </View>
   );
 };

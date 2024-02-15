@@ -33,7 +33,9 @@ const DailyUpdates = () => {
           <FlatList
             data={data[language]}
             keyExtractor={(item, index) => index}
-            renderItem={({item}) => <CustomText text={item} size={28} />}
+            renderItem={({item, index}) => (
+              <CustomText text={`${index + 1}: ${item}`} size={28} />
+            )}
           />
         ) : (
           <CustomText

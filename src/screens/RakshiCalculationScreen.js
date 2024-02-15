@@ -1,9 +1,10 @@
-import {SafeAreaView, View, TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, TextInput, StyleSheet} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useState, useEffect, useRef} from 'react';
 import Details from '../components/Details';
 import useFirebaseData from '../hooks/useFirebaseData';
 import ErrorWrapper from '../components/ErrorWrapper';
+import {LANGUAGES} from '../constants/consts';
 
 const RakshiCalculationScreen = () => {
   const {t, i18n} = useTranslation();
@@ -11,10 +12,16 @@ const RakshiCalculationScreen = () => {
     name: '',
     zodiac: '',
     nakshatra: '',
+    horoscope: {english: [], hindi: []},
   });
   const {data, loading, error, netState} = useFirebaseData('rashi_nakshatras');
   const allRashi = useRef([]);
   const allNakstras = useRef([]);
+
+  const curLanguage =
+    i18n.language == LANGUAGES.ENGLISH.key
+      ? LANGUAGES.ENGLISH.label
+      : LANGUAGES.HINDI.label;
 
   function sortAccToLength(a, b) {
     // Return -1 if a should come before b
@@ -26,7 +33,7 @@ const RakshiCalculationScreen = () => {
   }
 
   useEffect(() => {
-    // console.log('data changed');
+    // console.log('data changed', data.horoscope);
     if (data.length != 0) {
       allRashi.current = Object.values(data.rashi)
         .map(val => val.map(alpha => alpha.trim().toLowerCase()))
@@ -69,11 +76,19 @@ const RakshiCalculationScreen = () => {
 
   const handleChange = input => {
     if (input.trim() == '') {
-      setInputString({name: '', zodiac: '', nakshatra: ''});
+      setInputString({
+        name: '',
+        zodiac: '',
+        nakshatra: '',
+        horoscope: {english: [], hindi: []},
+      });
       return;
     }
     const rashi = findRashi(input.trim().toLowerCase());
     const nakshatra = findNakshatras(input.trim().toLowerCase());
+    const horoscope = rashi.length
+      ? data.horoscope[rashi[0]]
+      : {english: [], hindi: []};
     setInputString({
       name: input,
       zodiac:
@@ -82,6 +97,7 @@ const RakshiCalculationScreen = () => {
         nakshatra.length == 0
           ? 'Cannot get your nakshatra'
           : nakshatra[0].toLowerCase(),
+      horoscope: horoscope,
     });
   };
 
@@ -104,6 +120,12 @@ const RakshiCalculationScreen = () => {
           label={t('Nakshatra')}
           data={t(inputString.nakshatra)}
           customStyle={{marginHorizontal: 20}}
+        />
+        <Details
+          label={t('Horoscope')}
+          data={inputString.horoscope[curLanguage]}
+          customStyle={{marginHorizontal: 20}}
+          isDataArray={true}
         />
       </SafeAreaView>
     </ErrorWrapper>
