@@ -1,10 +1,11 @@
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {Linking, SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
 import {LANGUAGES} from '../constants/consts';
 import {ScrollView} from 'react-native-gesture-handler';
 import Details from '../components/Details';
+import CustomButton from '../components/common/CustomButton';
 
 export default function NameMeaning({route}) {
   const {nameData, name} = route.params;
@@ -53,9 +54,45 @@ export default function NameMeaning({route}) {
           label={'Famous Personalities'}
           data={nameData['famous personalities']}
         /> */}
-        {labels.map((label, index) => (
-          <Details key={index} label={label} data={nameData[label]} />
-        ))}
+        {labels.map((label, index) =>
+          label == 'famous personalities' || label == 'प्रसिद्ध व्यक्तित्व' ? (
+            <View
+              key={index}
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+              }}>
+              <CustomText
+                text={
+                  label == 'famous personalities'
+                    ? 'Famous Personalities: '
+                    : label + ': '
+                }
+                fontColor="white"
+                size={35}
+                weight="bold"
+              />
+              {nameData[label].map(
+                (item, index) =>
+                  item.name && (
+                    <CustomButton
+                      key={index}
+                      text={`${index + 1}: ${item.name}`}
+                      textSize={28}
+                      textColor={'white'}
+                      handlePress={() =>
+                        item.link ? Linking.openURL(item.link) : null
+                      }
+                    />
+                  ),
+              )}
+            </View>
+          ) : (
+            <Details key={index} label={label} data={nameData[label]} />
+          ),
+        )}
         {newLabels.map((label, index) => (
           <Details key={index} label={label} data={nameData[label]} />
         ))}
