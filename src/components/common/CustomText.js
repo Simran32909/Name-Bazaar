@@ -13,9 +13,11 @@ export default function CustomText({
   fontFamily,
   customStyle,
   includeFontPadding,
+  handlePress,
 }) {
   return (
     <Text
+      onPress={handlePress}
       style={{
         color: 'black',
         fontSize: size,
@@ -44,6 +46,7 @@ CustomText.propTypes = {
   fontFamily: PropTypes.string,
   customStyle: PropTypes.object,
   includeFontPadding: PropTypes.bool,
+  handlePress: PropTypes.func,
 };
 
 CustomText.defaultProps = {
@@ -57,4 +60,5 @@ CustomText.defaultProps = {
   fontFamily: 'normal',
   customStyle: {},
   includeFontPadding: true,
+  handlePress: () => {},
 };
