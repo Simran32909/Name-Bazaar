@@ -1,4 +1,4 @@
-import {Linking, SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React from 'react';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
@@ -17,7 +17,7 @@ export default function NameMeaning({route}) {
   //     etymology: '',
   //     zodiac: '',
   //     horoscope: '',
-  //     'famous personalities': [{link:'',name:''}],
+  //     'famous personalities': '',
   // },
 
   const labels =
@@ -53,47 +53,9 @@ export default function NameMeaning({route}) {
           label={'Famous Personalities'}
           data={nameData['famous personalities']}
         /> */}
-        {labels.map((label, index) =>
-          label.toLowerCase().trim() == 'famous personalities' ||
-          label.toLowerCase().trim() == 'प्रसिद्ध व्यक्तित्व' ? (
-            <View
-              key={index}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-              }}>
-              <CustomText
-                text={
-                  label.toLowerCase().trim() == 'famous personalities'
-                    ? 'Famous Personalities:'
-                    : label + ':'
-                }
-                fontColor="white"
-                size={35}
-                weight="bold"
-              />
-              <View>
-                {nameData[label].map((obj, index) => {
-                  return (
-                    <CustomText
-                      key={index}
-                      text={obj.name}
-                      handlePress={() =>
-                        obj.link ? Linking.openURL(obj.link) : {}
-                      }
-                      fontColor="white"
-                      size={28}
-                    />
-                  );
-                })}
-              </View>
-            </View>
-          ) : (
-            <Details key={index} label={label} data={nameData[label]} />
-          ),
-        )}
+        {labels.map((label, index) => (
+          <Details key={index} label={label} data={nameData[label]} />
+        ))}
         {newLabels.map((label, index) => (
           <Details key={index} label={label} data={nameData[label]} />
         ))}
