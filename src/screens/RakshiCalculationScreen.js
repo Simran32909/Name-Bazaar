@@ -1,4 +1,4 @@
-import {SafeAreaView, TextInput, StyleSheet} from 'react-native';
+import {SafeAreaView, TextInput, StyleSheet, ScrollView} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useState, useEffect, useRef} from 'react';
 import Details from '../components/Details';
@@ -104,29 +104,37 @@ const RakshiCalculationScreen = () => {
   return (
     <ErrorWrapper loading={loading} error={error} netState={netState}>
       <SafeAreaView style={styles.container}>
-        <TextInput
-          style={styles.searchBox}
-          value={inputString.name}
-          onChangeText={handleChange}
-          placeholder={t('Enter Name')}
-          placeholderTextColor="#dfe0e8"
-        />
-        <Details
-          label={t('Zodiac')}
-          data={t(inputString.zodiac)}
-          customStyle={{marginHorizontal: 20}}
-        />
-        <Details
-          label={t('Nakshatra')}
-          data={t(inputString.nakshatra)}
-          customStyle={{marginHorizontal: 20}}
-        />
-        <Details
-          label={t('Horoscope')}
-          data={inputString.horoscope[curLanguage]}
-          customStyle={{marginHorizontal: 20}}
-          isDataArray={true}
-        />
+        <ScrollView
+          contentContainerStyle={{
+            justifyContent: 'center',
+            gap: 50,
+            // backgroundColor: 'black',
+            flexGrow: 1,
+          }}>
+          <TextInput
+            style={styles.searchBox}
+            value={inputString.name}
+            onChangeText={handleChange}
+            placeholder={t('Enter Name')}
+            placeholderTextColor="#dfe0e8"
+          />
+          <Details
+            label={t('Zodiac')}
+            data={t(inputString.zodiac)}
+            customStyle={{marginHorizontal: 20}}
+          />
+          <Details
+            label={t('Nakshatra')}
+            data={t(inputString.nakshatra)}
+            customStyle={{marginHorizontal: 20}}
+          />
+          <Details
+            label={t('Horoscope')}
+            data={inputString.horoscope[curLanguage]}
+            customStyle={{marginHorizontal: 20}}
+            isDataArray={true}
+          />
+        </ScrollView>
       </SafeAreaView>
     </ErrorWrapper>
   );
@@ -136,13 +144,12 @@ export default RakshiCalculationScreen;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#2196F3',
+    flex: 1,
     // alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 16,
+    // paddingTop: 16,
     // paddingLeft: 20,
-    flex: 1,
-    backgroundColor: '#2196F3',
-    gap: 50,
   },
   searchBox: {
     color: 'white',
