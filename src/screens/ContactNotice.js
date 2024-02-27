@@ -1,5 +1,5 @@
 import {Image, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import CustomText from '../components/common/CustomText';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
@@ -10,7 +10,14 @@ import ErrorWrapper from '../components/ErrorWrapper';
 export default function ContactNotice() {
   const {t} = useTranslation();
 
-  const {data, loading, error, netState} = useFirebaseData('data', 'Phone Nos');
+  const {data, loading, error, netState} = useFirebaseData(
+    'data',
+    'Contact Us',
+  );
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
 
   // const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
   const noOfPoints = [1, 2, 3, 6, 7, 8, 9, 10, 11, 12];
@@ -39,9 +46,10 @@ export default function ContactNotice() {
           <CustomText text={t('For more info')} size={20} />
           {/* <CustomText text={t('Paid Services')} /> */}
           <View style={styles.whtsapDiv}>
-            {Object.values(data).map((phoneNo, index) => (
-              <PhoneNo key={index} number={phoneNo} />
-            ))}
+            {data.length != 0 &&
+              Object.values(data['Phone Nos']).map((phoneNo, index) => (
+                <PhoneNo key={index} number={phoneNo} />
+              ))}
           </View>
           <CustomText
             text={t('Reveal Destiny')}
@@ -72,9 +80,10 @@ export default function ContactNotice() {
           <CustomText text={t('Our Experts')} size={20} />
           <CustomText text={t('Then what are you waiting')} size={20} />
           <View style={styles.whtsapDiv}>
-            {Object.values(data).map((phoneNo, index) => (
-              <PhoneNo key={index} number={phoneNo} />
-            ))}
+            {data.length != 0 &&
+              Object.values(data['Phone Nos']).map((phoneNo, index) => (
+                <PhoneNo key={index} number={phoneNo} />
+              ))}
           </View>
           <CustomText text={t('Destiny in your hands')} size={20} />
         </ScrollView>

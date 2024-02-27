@@ -1,5 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
+import {getStorage} from 'firebase/storage';
 import Config from 'react-native-config';
 
 const firebaseConfig = {
@@ -13,5 +14,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+const db = getFirestore(app);
 
-export const db = getFirestore(app);
+export {db, storage};
