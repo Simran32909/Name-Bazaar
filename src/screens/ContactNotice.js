@@ -1,25 +1,31 @@
 import {Image, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import CustomText from '../components/common/CustomText';
 import icons from '../constants/icons';
 import {useTranslation} from 'react-i18next';
 import PhoneNo from '../components/PhoneNo';
 import useFirebaseData from '../hooks/useFirebaseData';
 import ErrorWrapper from '../components/ErrorWrapper';
+import {LANGUAGES} from '../constants/consts';
 
 export default function ContactNotice() {
-  const {t} = useTranslation();
+  const {t, i18n} = useTranslation();
+  const curLanguage = i18n.language;
 
+  const [dataLang, setDataLang] = useState({});
   const {data, loading, error, netState} = useFirebaseData(
     'data',
     'Contact Us',
   );
+  let language =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? LANGUAGES.ENGLISH.label
+      : LANGUAGES.HINDI.label;
 
   useEffect(() => {
-    console.log(data);
-  }, [data]);
+    if (Object.keys(data).length != 0) setDataLang(data[language]);
+  }, [data, language]);
 
-  // const noOfPoints = [1, 2, 3, 4, 5, 13, 6, 7, 8, 9, 10, 11, 12];
   const noOfPoints = [1, 2, 3, 6, 7, 8, 9, 10, 11, 12];
 
   const Points = ({text}) => (
@@ -31,7 +37,8 @@ export default function ContactNotice() {
       }}>
       <Image source={icons.star} style={{marginTop: 3}} />
       <CustomText
-        text={t(`${text}`)}
+        // text={t(`${text}`)}
+        text={text}
         size={20}
         customStyle={{flex: 1, flexWrap: 'wrap'}}
         includeFontPadding={false}
@@ -45,40 +52,41 @@ export default function ContactNotice() {
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <CustomText text={t('For more info')} size={20} />
           {/* <CustomText text={t('Paid Services')} /> */}
-          <View style={styles.whtsapDiv}>
-            {data.length != 0 &&
-              Object.values(data['Phone Nos']).map((phoneNo, index) => (
-                <PhoneNo key={index} number={phoneNo} />
-              ))}
-          </View>
+          {Object.keys(data).length != 0 && (
+            <View style={styles.whtsapDiv}>
+              <PhoneNo number={data['Phone Nos'][0]} />
+              <PhoneNo number={data['Phone Nos'][1]} />
+            </View>
+          )}
           <CustomText
-            text={t('Reveal Destiny')}
+            text={dataLang.blueheading1}
             fontColor={'#2196F3'}
             size={25}
             weight={'700'}
             fontStyle={'italic'}
           />
           <CustomText
-            text={t('NAME BAZAAR CONSULTANCY SERVICES')}
+            text={dataLang.blueheading2}
             fontColor={'#2196F3'}
             size={28}
             weight={'bold'}
             fontStyle={'italic'}
           />
-          <CustomText text={t('SubHead')} size={20} />
+          <CustomText text={dataLang.para1} size={20} />
           <View style={styles.points}>
             <CustomText
-              text={t('Our Services Includes')}
+              text={dataLang.blueheading3}
               fontColor={'#2196F3'}
               size={20}
               weight={'bold'}
             />
-            {noOfPoints.map(val => (
-              <Points text={`P${val}`} key={val} />
-            ))}
+            {Object.keys(dataLang).length != 0 &&
+              dataLang.points.map((val, index) => (
+                <Points text={val} key={index} />
+              ))}
           </View>
-          <CustomText text={t('Our Experts')} size={20} />
-          <CustomText text={t('Then what are you waiting')} size={20} />
+          <CustomText text={dataLang.para2} size={20} />
+          <CustomText text={dataLang.para3} size={20} />
           <View style={styles.whtsapDiv}>
             {data.length != 0 &&
               Object.values(data['Phone Nos']).map((phoneNo, index) => (
