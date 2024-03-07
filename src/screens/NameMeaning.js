@@ -21,16 +21,7 @@ export default function NameMeaning({route}) {
   //     'famous personalities': '',
   // },
 
-  const labels =
-    curLanguage == LANGUAGES.ENGLISH.key
-      ? ['meaning', 'etymology', 'zodiac', 'horoscope', 'famous personalities']
-      : ['अर्थ', 'व्युत्पत्ति', 'राशि', 'राशिफल', 'प्रसिद्ध व्यक्तित्व'];
-
-  const newLabels = Object.keys(nameData).filter(
-    label => !labels.includes(label.toLowerCase().trim()),
-  );
-  // console.log('labels: ', labels);
-  // console.log('new labels: ', newLabels);
+  const dataKeys = Object.keys(nameData).sort();
 
   return (
     <SafeAreaView style={styles.container}>
@@ -40,63 +31,55 @@ export default function NameMeaning({route}) {
           justifyContent: 'center',
           gap: 20,
         }}>
-        <Details
-          label={`${t('Name')}`}
-          data={name}
-          // customStyle={styles.nameContainer}
-        />
+        <Details label={`${t('Name')}`} data={name} />
         <View style={styles.divider} />
-        {/* <Details label={'Meaning'} data={nameData['meaning']} />
-        <Details label={'Etymology'} data={nameData['etymology']} />
-        <Details label={'Zodiac'} data={nameData['zodiac']} />
-        <Details label={'Horoscope'} data={nameData['horoscope']} />
-        <Details
-          label={'Famous Personalities'}
-          data={nameData['famous personalities']}
-        /> */}
-        {labels.map((label, index) =>
-          label.toLowerCase().trim() == 'famous personalities' ||
-          label.toLowerCase().trim() == 'प्रसिद्ध व्यक्तित्व' ? (
-            <View
-              key={index}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-              }}>
-              <CustomText
-                text={
-                  label.toLowerCase().trim() == 'famous personalities'
-                    ? 'Famous Personalities: '
-                    : label + ': '
-                }
-                fontColor="white"
-                size={35}
-                weight="bold"
-              />
-              {nameData[label].map(
-                (item, index) =>
-                  item.name && (
-                    <CustomButton
-                      key={index}
-                      text={`${index + 1}: ${item.name}`}
-                      textSize={28}
-                      textColor={'white'}
-                      handlePress={() =>
-                        item.link ? Linking.openURL(item.link) : null
-                      }
-                    />
-                  ),
-              )}
-            </View>
-          ) : (
-            <Details key={index} label={label} data={nameData[label]} />
-          ),
-        )}
-        {newLabels.map((label, index) => (
-          <Details key={index} label={label} data={nameData[label]} />
-        ))}
+        {dataKeys.length != 0 &&
+          dataKeys.map((label, index) => {
+            let processedLabel = label.trim();
+            processedLabel =
+              !isNaN(Number(label[0])) && label[1] == '.'
+                ? label.slice(2).trim()
+                : label.trim();
+
+            return processedLabel == 'famous personalities' ||
+              processedLabel == 'प्रसिद्ध व्यक्तित्व' ? (
+              <View
+                key={index}
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                }}>
+                <CustomText
+                  text={
+                    curLanguage == LANGUAGES.ENGLISH.key
+                      ? 'Famous Personalities: '
+                      : processedLabel + ': '
+                  }
+                  fontColor="white"
+                  size={35}
+                  weight="bold"
+                />
+                {nameData[label].map(
+                  (item, index) =>
+                    item.name && (
+                      <CustomButton
+                        key={index}
+                        text={`${index + 1}: ${item.name}`}
+                        textSize={28}
+                        textColor={'white'}
+                        handlePress={() =>
+                          item.link ? Linking.openURL(item.link) : null
+                        }
+                      />
+                    ),
+                )}
+              </View>
+            ) : (
+              <Details label={processedLabel} data={nameData[label]} />
+            );
+          })}
       </ScrollView>
     </SafeAreaView>
   );
