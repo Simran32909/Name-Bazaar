@@ -61,7 +61,11 @@ const DailyUpdates = () => {
               .map((item, index) => (
                 <Details
                   key={index}
-                  label={item.slice(2).trim()}
+                  label={
+                    !isNaN(Number(item[0])) && item[1] == '.'
+                      ? item.slice(2).trim()
+                      : item.trim()
+                  }
                   labelSize={28}
                   data={data[language][item]}
                 />
