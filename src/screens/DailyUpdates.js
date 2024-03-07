@@ -25,30 +25,6 @@ const DailyUpdates = () => {
       ? LANGUAGES.ENGLISH.label
       : LANGUAGES.HINDI.label;
 
-  // useEffect(() => {
-  //   console.log(data);
-  //   console.log('sdas');
-  // }, [data]);
-
-  const labels =
-    curLanguage == LANGUAGES.ENGLISH.key
-      ? [
-          "Today's tithi",
-          "Today's motivational quote",
-          "Today's history",
-          'Sankalpa path',
-          'Something else',
-        ]
-      : [
-          'आज की तिथि',
-          'आज का प्रेरक वाक्य',
-          '⁠आज का इतिहास',
-          'संकल्प पाठ',
-          '⁠कुछ अन्य',
-        ];
-
-  // console.log(labels);
-
   const imagesListRef = ref(storage, 'Daily Updates/images/');
   const documentListRef = ref(storage, 'Daily Updates/documents/');
 
@@ -79,17 +55,21 @@ const DailyUpdates = () => {
             justifyContent: 'center',
             gap: 45,
           }}>
-          {labels.map((item, index) => (
-            <Details
-              key={index}
-              label={item}
-              labelSize={28}
-              data={data?.[language]?.[item]}
-            />
-          ))}
-          {imageList.map(url => {
+          {Object.keys(data).length != 0 &&
+            Object.keys(data[language])
+              .sort()
+              .map((item, index) => (
+                <Details
+                  key={index}
+                  label={item.slice(2).trim()}
+                  labelSize={28}
+                  data={data[language][item]}
+                />
+              ))}
+          {imageList.map((url, index) => {
             return (
               <Image
+                key={index}
                 source={{uri: url}}
                 style={{
                   width: 400,
@@ -102,6 +82,7 @@ const DailyUpdates = () => {
           {documentList.map((url, index) => {
             return (
               <CustomButton
+                key={index}
                 text={'Open PDF ' + (index + 1)}
                 handlePress={() => Linking.openURL(url)}
                 btnColor={'white'}
