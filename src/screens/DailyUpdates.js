@@ -73,6 +73,7 @@ const DailyUpdates = () => {
           {imageList.map((url, index) => {
             return (
               <Pressable
+                key={index}
                 style={{
                   width: '100%',
                   aspectRatio: 1 / 1,
@@ -80,7 +81,6 @@ const DailyUpdates = () => {
                 }}
                 onPress={() => Linking.openURL(url)}>
                 <Image
-                  key={index}
                   source={{uri: url}}
                   style={{
                     flex: 1,
