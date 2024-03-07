@@ -1,4 +1,4 @@
-import {Image, Linking, ScrollView, StyleSheet} from 'react-native';
+import {Image, Linking, ScrollView, StyleSheet, Pressable} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import useFirebaseData from '../hooks/useFirebaseData';
 import {LANGUAGES} from '../constants/consts';
@@ -72,15 +72,24 @@ const DailyUpdates = () => {
               ))}
           {imageList.map((url, index) => {
             return (
-              <Image
-                key={index}
-                source={{uri: url}}
+              <Pressable
                 style={{
-                  width: 400,
-                  height: 400,
-                  resizeMode: 'contain',
+                  width: '100%',
+                  aspectRatio: 1 / 1,
+                  borderRadius: 8,
                 }}
-              />
+                onPress={() => Linking.openURL(url)}>
+                <Image
+                  key={index}
+                  source={{uri: url}}
+                  style={{
+                    flex: 1,
+                    width: '100%',
+                    aspectRatio: 1 / 1,
+                    resizeMode: 'contain',
+                  }}
+                />
+              </Pressable>
             );
           })}
           {documentList.map((url, index) => {
