@@ -1,34 +1,56 @@
-import {useTranslation} from 'react-i18next';
 import {SafeAreaView, StyleSheet, FlatList, TextInput} from 'react-native';
-import {getUniqueNamesData} from '../utils/getNamesData';
-import {LANGUAGES} from '../constants/consts';
 import NameTile from '../components/NameTile';
 import {useEffect, useState} from 'react';
 import Fuse from 'fuse.js';
+import useFirebaseData from '../hooks/useFirebaseData';
+import {useTranslation} from 'react-i18next';
+import {LANGUAGES, SELECTIONS} from '../constants/consts';
+import ErrorWrapper from '../components/ErrorWrapper';
 
 export default function UniqueNamesList({route}) {
   const {selection} = route.params;
   const {t, i18n} = useTranslation();
 
-  const selectedData = getUniqueNamesData(selection);
+  const [result, setResult] = useState([]);
+  const [searchString, setSearchString] = useState('');
+  const [searchData, setSearchData] = useState([]);
 
   const curLanguage = i18n.language;
-  let namesData;
-  if (curLanguage == LANGUAGES.HINDI.key)
-    namesData = selectedData[LANGUAGES.HINDI.label];
-  else namesData = selectedData[LANGUAGES.ENGLISH.label];
+  let language =
+    curLanguage == LANGUAGES.ENGLISH.key
+      ? LANGUAGES.ENGLISH.label
+      : LANGUAGES.HINDI.label;
 
-  const [result, setResult] = useState([...namesData]);
-  const [searchString, setSearchString] = useState('');
+  let document;
+  if (selection == SELECTIONS.BOY) document = 'boys' + ' ' + language;
+  else if (selection == SELECTIONS.GIRL) document = 'girls' + ' ' + language;
+
+  const {data, loading, error, netState} = useFirebaseData(
+    'unique names',
+    document,
+  );
 
   useEffect(() => {
-    // console.log(searchString);
     const res = fuse.search(searchString).map(r => r.item);
 
-    if (searchString == '') setResult([...namesData]);
+    if (searchString == '') setResult(searchData);
     else setResult(res);
-    // console.log('res:', res);
   }, [searchString]);
+
+  useEffect(() => {
+    let obj = [];
+    if (data) {
+      Object.keys(data).forEach(alpha => {
+        if (data[alpha]) obj = [...obj, ...Object.keys(data[alpha])];
+      });
+      obj.sort();
+    }
+    setSearchData(obj);
+  }, [data]);
+
+  useEffect(() => {
+    setResult(searchData);
+  }, [searchData]);
 
   const options = {
     findAllMatches: false,
@@ -36,42 +58,52 @@ export default function UniqueNamesList({route}) {
     threshold: 0.2,
   };
 
-  const fuse = new Fuse(namesData, options);
+  const fuse = new Fuse(searchData, options);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TextInput
-        style={styles.searchBox}
-        onChangeText={val => setSearchString(val)}
-        value={searchString}
-        placeholder={t('Search Name')}
-        placeholderTextColor="#a69f9f"
-      />
-      <FlatList
-        style={styles.listStyle}
-        data={result}
-        renderItem={({item}) => <NameTile data={item} />}
-        keyExtractor={(item, index) => index}
-      />
-    </SafeAreaView>
+    <ErrorWrapper loading={loading} error={error} netState={netState}>
+      <SafeAreaView style={styles.container}>
+        <TextInput
+          style={styles.searchBox}
+          onChangeText={val => setSearchString(val)}
+          value={searchString}
+          placeholder={t('Search Name')}
+          placeholderTextColor="#a69f9f"
+        />
+        <FlatList
+          style={styles.listStyle}
+          data={result}
+          renderItem={({item}) => {
+            if (!data || !data[item[0]] || !data[item[0]][item]) return null;
+
+            return <NameTile nameData={data[item[0]][item]} name={item} />;
+          }}
+          keyExtractor={(item, index) => index}
+        />
+      </SafeAreaView>
+    </ErrorWrapper>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {alignItems: 'center', paddingTop: 16},
+  container: {
+    alignItems: 'center',
+    paddingTop: 16,
+    // backgroundColor: '#2196F3'
+  },
   searchBox: {
     color: 'black',
-    padding: 0,
+    // padding: 0,
     margin: 0,
     fontSize: 30,
+    paddingVertical: 5,
     paddingHorizontal: 12,
     marginBottom: 16,
     width: '90%',
-    // flexDirection: 'row',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    borderColor: 'black',
+    // backgroundColor: 'white',
+    borderColor: 'grey',
     borderWidth: 1,
+    borderRadius: 10,
   },
   listStyle: {
     width: '100%',

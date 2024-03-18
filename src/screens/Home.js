@@ -34,16 +34,22 @@ export default function Home() {
           toPath={NAVIGATIONS.UNIQUE_NAMES.name}
         />
         <Card
-          imgSrc={icons.family}
-          title={t(SELECTIONS.BABY)}
-          selection={SELECTIONS.BABY}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          imgSrc={icons.daily_updates}
+          title={t(SELECTIONS.DAILY_UPDATES)}
+          selection={SELECTIONS.DAILY_UPDATES}
+          toPath={NAVIGATIONS.DAILY_UPDATES.name}
         />
         <Card
           imgSrc={icons.astro}
           title={t(SELECTIONS.ASTRO)}
           selection={SELECTIONS.ASTRO}
-          toPath={NAVIGATIONS.NAKSTRAS_SCREEN.name}
+          toPath={NAVIGATIONS.RASHI_CALCULATION.name}
+        />
+        <Card
+          imgSrc={icons.family}
+          title={t(SELECTIONS.BABY)}
+          selection={SELECTIONS.BABY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
           imgSrc={icons.shop}
@@ -58,14 +64,8 @@ export default function Home() {
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card
-          imgSrc={icons.factory}
-          title={t(SELECTIONS.FACTORY)}
-          selection={SELECTIONS.FACTORY}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
           imgSrc={icons.company}
-          title={t(SELECTIONS.COMPANY)}
+          title={t(SELECTIONS.FACTORY_COMPANY)}
           selection={SELECTIONS.COMPANY}
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />

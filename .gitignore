@@ -4,6 +4,7 @@
 
 #names file
 src/constants/data/
+data/
 
 # Xcode
 #

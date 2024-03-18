@@ -40,6 +40,12 @@ const NAVIGATIONS = {
   NAKSTRAS_SCREEN: {
     name: 'nakstrascreen',
   },
+  DAILY_UPDATES: {
+    name: 'dailyupdates',
+  },
+  RASHI_CALCULATION: {
+    name: 'rashicalculationscreen',
+  },
 };
 
 export default NAVIGATIONS;
