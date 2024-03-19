@@ -1,9 +1,8 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView} from 'react-native';
+import {StyleSheet, SafeAreaView, ScrollView, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Card from '../components/Card';
 import icons from '../constants/icons';
-import {ScrollView} from 'react-native-gesture-handler';
 import {SELECTIONS} from '../constants/consts';
 import {useTranslation} from 'react-i18next';
 import NAVIGATIONS from '../constants/navigationConstants';
@@ -45,36 +44,45 @@ export default function Home() {
           selection={SELECTIONS.ASTRO}
           toPath={NAVIGATIONS.RASHI_CALCULATION.name}
         />
-        <Card
-          imgSrc={icons.family}
-          title={t(SELECTIONS.BABY)}
-          selection={SELECTIONS.BABY}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.shop}
-          title={t(SELECTIONS.SHOP)}
-          selection={SELECTIONS.SHOP}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.school}
-          title={t(SELECTIONS.SCHOOL)}
-          selection={SELECTIONS.SCHOOL}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.company}
-          title={t(SELECTIONS.FACTORY_COMPANY)}
-          selection={SELECTIONS.COMPANY}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.name}
-          title={t(SELECTIONS.NAME)}
-          selection={SELECTIONS.NAME}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
+        {/* =================================== */}
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            gap: 10,
+            // justifyContent: 'center',
+          }}>
+          <Card
+            // imgSrc={icons.family}
+            title={t(SELECTIONS.BABY)}
+            selection={SELECTIONS.BABY}
+            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          />
+          <Card
+            // imgSrc={icons.shop}
+            title={t(SELECTIONS.SHOP)}
+            selection={SELECTIONS.SHOP}
+            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          />
+          <Card
+            // imgSrc={icons.school}
+            title={t(SELECTIONS.SCHOOL)}
+            selection={SELECTIONS.SCHOOL}
+            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          />
+          <Card
+            // imgSrc={icons.company}
+            title={t(SELECTIONS.FACTORY_COMPANY)}
+            selection={SELECTIONS.COMPANY}
+            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          />
+          <Card
+            // imgSrc={icons.name}
+            title={t(SELECTIONS.NAME)}
+            selection={SELECTIONS.NAME}
+            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
