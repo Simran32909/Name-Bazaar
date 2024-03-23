@@ -50,7 +50,7 @@ export default function Home() {
             flexDirection: 'row',
             flexWrap: 'wrap',
             gap: 10,
-            // justifyContent: 'center',
+            justifyContent: 'center',
           }}>
           <Card
             // imgSrc={icons.family}
