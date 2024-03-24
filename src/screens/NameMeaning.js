@@ -68,7 +68,7 @@ export default function NameMeaning({route}) {
                         key={index}
                         text={`${index + 1}: ${item.name}`}
                         textSize={28}
-                        textColor={'white'}
+                        textColor={item.link ? 'blue' : 'white'}
                         handlePress={() =>
                           item.link ? Linking.openURL(item.link) : null
                         }
