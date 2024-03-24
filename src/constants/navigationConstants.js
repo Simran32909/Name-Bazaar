@@ -46,6 +46,15 @@ const NAVIGATIONS = {
   RASHI_CALCULATION: {
     name: 'rashicalculationscreen',
   },
+  MOTTO_FOR_EVERYTHING: {
+    name: 'mottoforeverythingscreen',
+  },
+  PET_NAME: {
+    name: 'petnamescreen',
+  },
+  MOTTO_SCREEN: {
+    name: 'mottoscreen',
+  },
 };
 
 export default NAVIGATIONS;

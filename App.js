@@ -17,6 +17,9 @@ import ContactNotice from './src/screens/ContactNotice';
 import NakstrasScreen from './src/screens/NakstrasScreen';
 import DailyUpdates from './src/screens/DailyUpdates';
 import RakshiCalculationScreen from './src/screens/RakshiCalculationScreen';
+import MottoForEverything from './src/screens/MottoForEverything';
+import PetName from './src/screens/PetName';
+import MottoScreen from './src/screens/MottoScreen';
 
 const Stack = createStackNavigator();
 
@@ -118,6 +121,21 @@ function App() {
               name={NAVIGATIONS.RASHI_CALCULATION.name}
               component={RakshiCalculationScreen}
               options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.MOTTO_FOR_EVERYTHING.name}
+              component={MottoForEverything}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.PET_NAME.name}
+              component={PetName}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.MOTTO_SCREEN.name}
+              component={MottoScreen}
+              // options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>
         )}

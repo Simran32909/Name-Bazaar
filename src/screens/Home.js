@@ -48,13 +48,13 @@ export default function Home() {
           imgSrc={icons.slogan}
           title={t(SELECTIONS.MOTTO_FOR_EVERYTHING)}
           selection={SELECTIONS.MOTTO_FOR_EVERYTHING}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          toPath={NAVIGATIONS.MOTTO_FOR_EVERYTHING.name}
         />
         <Card
           imgSrc={icons.pets}
           title={t(SELECTIONS.PET_NAME)}
           selection={SELECTIONS.PET_NAME}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+          toPath={NAVIGATIONS.PET_NAME.name}
         />
         {/* =================================== */}
         {/* <View
@@ -64,36 +64,36 @@ export default function Home() {
             gap: 10,
             justifyContent: 'center',
           }}> */}
-          <Card
-            imgSrc={icons.family}
-            title={t(SELECTIONS.BABY)}
-            selection={SELECTIONS.BABY}
-            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-          />
-          <Card
-            imgSrc={icons.shop}
-            title={t(SELECTIONS.SHOP)}
-            selection={SELECTIONS.SHOP}
-            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-          />
-          <Card
-            imgSrc={icons.school}
-            title={t(SELECTIONS.SCHOOL)}
-            selection={SELECTIONS.SCHOOL}
-            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-          />
-          <Card
-            imgSrc={icons.company}
-            title={t(SELECTIONS.FACTORY_COMPANY)}
-            selection={SELECTIONS.COMPANY}
-            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-          />
-          <Card
-            imgSrc={icons.name}
-            title={t(SELECTIONS.NAME)}
-            selection={SELECTIONS.NAME}
-            toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-          />
+        <Card
+          imgSrc={icons.family}
+          title={t(SELECTIONS.BABY)}
+          selection={SELECTIONS.BABY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
+        <Card
+          imgSrc={icons.shop}
+          title={t(SELECTIONS.SHOP)}
+          selection={SELECTIONS.SHOP}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
+        <Card
+          imgSrc={icons.school}
+          title={t(SELECTIONS.SCHOOL)}
+          selection={SELECTIONS.SCHOOL}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
+        <Card
+          imgSrc={icons.company}
+          title={t(SELECTIONS.FACTORY_COMPANY)}
+          selection={SELECTIONS.COMPANY}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
+        <Card
+          imgSrc={icons.name}
+          title={t(SELECTIONS.NAME)}
+          selection={SELECTIONS.NAME}
+          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
+        />
         {/* </View> */}
       </ScrollView>
     </SafeAreaView>
