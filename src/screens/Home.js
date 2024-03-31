@@ -54,7 +54,29 @@ export default function Home() {
           imgSrc={icons.pets}
           title={t(SELECTIONS.PET_NAME)}
           selection={SELECTIONS.PET_NAME}
-          toPath={NAVIGATIONS.PET_NAME.name}
+          toPath={NAVIGATIONS.COMMON_SCREEN.name}
+          collectionName="pet name"
+        />
+        <Card
+          imgSrc={icons.shop}
+          title={t(SELECTIONS.SHOP)}
+          selection={SELECTIONS.SHOP}
+          toPath={NAVIGATIONS.COMMON_SCREEN.name}
+          collectionName="shop name"
+        />
+        <Card
+          imgSrc={icons.school}
+          title={t(SELECTIONS.SCHOOL)}
+          selection={SELECTIONS.SCHOOL}
+          toPath={NAVIGATIONS.COMMON_SCREEN.name}
+          collectionName="school name"
+        />
+        <Card
+          imgSrc={icons.company}
+          title={t(SELECTIONS.FACTORY_COMPANY)}
+          selection={SELECTIONS.COMPANY}
+          toPath={NAVIGATIONS.COMMON_SCREEN.name}
+          collectionName="factory name"
         />
         {/* =================================== */}
         {/* <View
@@ -68,24 +90,6 @@ export default function Home() {
           imgSrc={icons.family}
           title={t(SELECTIONS.BABY)}
           selection={SELECTIONS.BABY}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.shop}
-          title={t(SELECTIONS.SHOP)}
-          selection={SELECTIONS.SHOP}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.school}
-          title={t(SELECTIONS.SCHOOL)}
-          selection={SELECTIONS.SCHOOL}
-          toPath={NAVIGATIONS.CONTACT_NOTICE.name}
-        />
-        <Card
-          imgSrc={icons.company}
-          title={t(SELECTIONS.FACTORY_COMPANY)}
-          selection={SELECTIONS.COMPANY}
           toPath={NAVIGATIONS.CONTACT_NOTICE.name}
         />
         <Card

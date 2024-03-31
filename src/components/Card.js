@@ -9,6 +9,7 @@ export default function Card({
   title,
   selection,
   toPath = NAVIGATIONS.ALPHABET_LIST.name,
+  collectionName = '',
 }) {
   const navigation = useNavigation();
   return (
@@ -16,6 +17,7 @@ export default function Card({
       onPress={() =>
         navigation.navigate(toPath, {
           selection: selection,
+          collectionName: collectionName,
         })
       }
       style={

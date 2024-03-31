@@ -55,6 +55,9 @@ const NAVIGATIONS = {
   MOTTO_SCREEN: {
     name: 'mottoscreen',
   },
+  COMMON_SCREEN: {
+    name: 'commonscreen',
+  },
 };
 
 export default NAVIGATIONS;
