@@ -9,6 +9,7 @@ import {useEffect, useState} from 'react';
 import {getDownloadURL, listAll, ref} from 'firebase/storage';
 import {storage} from '../firebase/firebase';
 import CustomButton from '../components/common/CustomButton';
+import ImageModal from 'react-native-image-modal';
 
 const DailyUpdates = () => {
   const {t, i18n} = useTranslation();
@@ -80,13 +81,25 @@ const DailyUpdates = () => {
                   borderRadius: 8,
                 }}
                 onPress={() => Linking.openURL(url)}>
-                <Image
+                {/* <Image
                   source={{uri: url}}
                   style={{
                     flex: 1,
                     width: '100%',
                     aspectRatio: 1 / 1,
                     resizeMode: 'contain',
+                  }}
+                /> */}
+                <ImageModal
+                  resizeMode="contain"
+                  imageBackgroundColor="#000000"
+                  style={{
+                    flex: 1,
+                    width: '100%',
+                    aspectRatio: 1 / 1,
+                  }}
+                  source={{
+                    uri: url,
                   }}
                 />
               </Pressable>
