@@ -14,6 +14,7 @@ import namaste from '../assets/namaste.png';
 import daily_updates from '../assets/daily_updates.png';
 import slogan from '../assets/slogan.png';
 import pets from '../assets/pets.png';
+import nickname from '../assets/nickname.png'
 
 export default {
   boy,
@@ -31,5 +32,6 @@ export default {
   namaste,
   daily_updates,
   slogan,
-  pets
+  pets,
+  nickname
 };

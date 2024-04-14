@@ -51,6 +51,12 @@ export default function Home() {
           toPath={NAVIGATIONS.MOTTO_FOR_EVERYTHING.name}
         />
         <Card
+          imgSrc={icons.nickname}
+          title={t(SELECTIONS.NICK_NAME)}
+          selection={SELECTIONS.NICK_NAME}
+          toPath={NAVIGATIONS.NICK_NAME.name}
+        />
+        <Card
           imgSrc={icons.pets}
           title={t(SELECTIONS.PET_NAME)}
           selection={SELECTIONS.PET_NAME}

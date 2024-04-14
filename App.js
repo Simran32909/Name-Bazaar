@@ -21,6 +21,7 @@ import MottoForEverything from './src/screens/MottoForEverything';
 import PetName from './src/screens/PetName';
 import MottoScreen from './src/screens/MottoScreen';
 import CommonScreen from './src/screens/CommonScreen';
+import NickName from './src/screens/NickName';
 
 const Stack = createStackNavigator();
 
@@ -142,6 +143,11 @@ function App() {
               name={NAVIGATIONS.COMMON_SCREEN.name}
               component={CommonScreen}
               // options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.NICK_NAME.name}
+              component={NickName}
+              options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>
         )}

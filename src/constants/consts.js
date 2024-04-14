@@ -12,7 +12,8 @@ const SELECTIONS = {
   NAME: 'Name of Anything',
   DAILY_UPDATES: 'Daily Updates',
   MOTTO_FOR_EVERYTHING:'Mottos for Everything',
-  PET_NAME:'Pet Name'
+  PET_NAME:'Pet Name',
+  NICK_NAME:'Nick Name',
 };
 
 const LANGUAGES = {

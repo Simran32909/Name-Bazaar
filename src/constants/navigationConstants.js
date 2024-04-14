@@ -58,6 +58,9 @@ const NAVIGATIONS = {
   COMMON_SCREEN: {
     name: 'commonscreen',
   },
+  NICK_NAME:{
+    name:'nicknamesscreen',
+  }
 };
 
 export default NAVIGATIONS;
