@@ -9,7 +9,7 @@ const PhoneNo = ({number}) => (
       style={{
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#2196F3',
+        backgroundColor: '#ed7d31',
         paddingHorizontal: 10,
         paddingVertical: 10,
         borderRadius: 8,

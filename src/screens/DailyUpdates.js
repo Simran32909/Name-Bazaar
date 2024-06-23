@@ -112,7 +112,7 @@ const DailyUpdates = () => {
                 text={'Open PDF ' + (index + 1)}
                 handlePress={() => Linking.openURL(url)}
                 btnColor={'white'}
-                textColor={'#2196F3'}
+                textColor={'#ed7d31'}
               />
             );
           })}
@@ -127,7 +127,7 @@ export default DailyUpdates;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     // justifyContent: 'center',
     // gap: 20,
     // alignItems: 'center',

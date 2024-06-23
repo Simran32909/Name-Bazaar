@@ -73,7 +73,7 @@ export default CommonScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     alignItems: 'center',
     // gap: 20,
     // alignItems: 'center',

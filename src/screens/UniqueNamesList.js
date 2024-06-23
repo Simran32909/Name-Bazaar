@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     paddingTop: 16,
-    // backgroundColor: '#2196F3'
+    // backgroundColor: '#ed7d31'
   },
   searchBox: {
     color: 'black',

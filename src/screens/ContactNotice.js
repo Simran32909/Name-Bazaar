@@ -60,14 +60,14 @@ export default function ContactNotice() {
           )}
           <CustomText
             text={dataLang.blueheading1}
-            fontColor={'#2196F3'}
+            fontColor={'#ed7d31'}
             size={25}
             weight={'700'}
             fontStyle={'italic'}
           />
           <CustomText
             text={dataLang.blueheading2}
-            fontColor={'#2196F3'}
+            fontColor={'#ed7d31'}
             size={28}
             weight={'bold'}
             fontStyle={'italic'}
@@ -76,7 +76,7 @@ export default function ContactNotice() {
           <View style={styles.points}>
             <CustomText
               text={dataLang.blueheading3}
-              fontColor={'#2196F3'}
+              fontColor={'#ed7d31'}
               size={20}
               weight={'bold'}
             />

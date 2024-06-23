@@ -42,7 +42,7 @@ CustomButton.defaultProps = {
   textColor: 'white',
   textSize: 16,
   fontWeight: 400,
-  btnColor: '#2196F3',
+  btnColor: '#ed7d31',
   style: {},
 };
 

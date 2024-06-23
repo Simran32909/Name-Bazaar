@@ -54,7 +54,7 @@ function App() {
           headerTitle: t('Name Bazaar'),
           headerTitleAlign: 'center',
           headerTintColor: 'white',
-          headerStyle: {backgroundColor: '#2196F3'},
+          headerStyle: {backgroundColor: '#ed7d31'},
           headerTitleStyle: {
             fontStyle: 'italic',
           },

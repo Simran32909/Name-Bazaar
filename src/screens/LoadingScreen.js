@@ -15,7 +15,7 @@ export default function LoadingScreen() {
         size={32}
         weight={'bold'}
         textAlignment={'center'}
-        fontColor={'#138ae8'}
+        fontColor={'#ed7d31'}
         fontFamily={'cursive'}
       />
       <View style={styles.logo}>
@@ -34,7 +34,7 @@ export default function LoadingScreen() {
           height: 100,
         }}
       />
-      <ActivityIndicator size="large" color="#2196F3" />
+      <ActivityIndicator size="large" color="#ed7d31" />
     </SafeAreaView>
   );
 }
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   logo: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     paddingHorizontal: horizontalScale(60),
     // width: '90%',
     paddingVertical: 10,

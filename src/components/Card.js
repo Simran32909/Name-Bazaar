@@ -51,7 +51,7 @@ export default function Card({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     borderRadius: 7,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   // cardContainer: {
-  //   backgroundColor: '#2196F3',
+  //   backgroundColor: '#ed7d31',
   //   flexDirection: 'row',
   //   borderWidth: StyleSheet.hairlineWidth,
   //   borderColor: 'grey',
