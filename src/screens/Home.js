@@ -27,6 +27,12 @@ export default function Home() {
           selection={SELECTIONS.GIRL}
         />
         <Card
+          imgSrc={icons.astro}
+          title={t(SELECTIONS.ASTRO)}
+          selection={SELECTIONS.ASTRO}
+          toPath={NAVIGATIONS.RASHI_CALCULATION.name}
+        />
+        <Card
           imgSrc={icons.unique}
           title={t(SELECTIONS.UNIQUE)}
           selection={SELECTIONS.UNIQUE}
@@ -37,12 +43,6 @@ export default function Home() {
           title={t(SELECTIONS.DAILY_UPDATES)}
           selection={SELECTIONS.DAILY_UPDATES}
           toPath={NAVIGATIONS.DAILY_UPDATES.name}
-        />
-        <Card
-          imgSrc={icons.astro}
-          title={t(SELECTIONS.ASTRO)}
-          selection={SELECTIONS.ASTRO}
-          toPath={NAVIGATIONS.RASHI_CALCULATION.name}
         />
         <Card
           imgSrc={icons.slogan}
