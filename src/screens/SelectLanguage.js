@@ -25,7 +25,7 @@ export default function SelectLanguage({route}) {
         size={32}
         weight={'bold'}
         textAlignment={'center'}
-        fontColor={'#138ae8'}
+        fontColor={'#ed7d31'}
         fontFamily={'cursive'}
       />
       <View style={styles.logo}>
