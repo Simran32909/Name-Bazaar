@@ -77,11 +77,15 @@ export default function NameMeaning({route}) {
                 )}
               </View>
             ) : (
-              <Details
-                key={index}
-                label={processedLabel}
-                data={nameData[label]}
-              />
+              <View>
+                <Details
+                  key={index}
+                  label={processedLabel}
+                  data={nameData[label]}
+                  customStyle={{paddingBottom:20}}
+                />
+                <View style={styles.divider} />
+              </View>
             );
           })}
       </ScrollView>
