@@ -22,9 +22,12 @@ function HomeNavigator() {
         headerTitle: t('Name Bazaar'),
         headerTitleAlign: 'center',
         headerTintColor: 'white',
-        headerStyle: {backgroundColor: '#ed7d31'},
+        headerStyle: {backgroundColor: '#ed7d31', height: 60},
         headerTitleStyle: {
           fontStyle: 'italic',
+          fontWeight: 'bold',
+          // fontFamily:'cursive',
+          fontSize: 26,
         },
         drawerActiveTintColor: 'white',
         drawerActiveBackgroundColor: '#ed7d31',
