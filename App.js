@@ -36,7 +36,7 @@ function App() {
       else setLang(false);
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 1800);
     }
     getVal();
   }, []);
