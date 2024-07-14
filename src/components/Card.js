@@ -43,7 +43,7 @@ export default function Card({
         text={title}
         size={20}
         fontColor="white"
-        customStyle={{flex: 1, flexWrap: 'wrap'}}
+        customStyle={{flex: 1, flexWrap: 'wrap',fontWeight:'bold'}}
       />
     </Pressable>
   );

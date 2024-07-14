@@ -26,8 +26,8 @@ function HomeNavigator() {
         headerTitleStyle: {
           fontStyle: 'italic',
           fontWeight: 'bold',
-          // fontFamily:'cursive',
-          fontSize: 26,
+          fontFamily:'cursive',
+          fontSize: 32,
         },
         drawerActiveTintColor: 'white',
         drawerActiveBackgroundColor: '#ed7d31',
