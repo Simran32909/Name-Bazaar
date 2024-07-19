@@ -3,7 +3,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import icons from '../constants/icons';
 import CustomText from './common/CustomText';
 
-const PhoneNo = ({number}) => (
+const PhoneNo = ({number,index}) => (
   <View style={styles.phoneBox}>
     <View
       style={{
@@ -43,7 +43,8 @@ const PhoneNo = ({number}) => (
         }}
       />
       <CustomText
-        text={number}
+        // text={number}
+        text={index+1}
         size={20}
         letterSpacing={0.5}
         fontFamily="sans-serif-medium"
@@ -59,6 +60,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    width:'100%',
+    gap:10,
   },
   phoneNo: {
     flexDirection: 'row',
@@ -70,5 +73,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingVertical: 10,
     paddingHorizontal: 5,
+    flexGrow:1,
   },
 });

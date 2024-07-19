@@ -1,5 +1,5 @@
 import {View, SafeAreaView, StyleSheet, ScrollView} from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CustomText from '../components/common/CustomText';
 import {useTranslation} from 'react-i18next';
 import PhoneNo from '../components/PhoneNo';
@@ -13,6 +13,10 @@ export default function DirectContact() {
     'data',
     'Direct Contact',
   );
+
+    useEffect(() => {
+      console.log("datain driect ",data);
+    },[data])
 
   const curLanguage =
     i18n.language == LANGUAGES.ENGLISH.key
@@ -36,9 +40,9 @@ export default function DirectContact() {
           </View>
           <View style={styles.whtsapDiv}>
             {data.length != 0 &&
-              Object.values(data?.PhoneNos).map((phoneNo, index) => (
-                <PhoneNo key={index} number={phoneNo} />
-              ))}
+            (data?.PhoneNos).map((phoneNo, index) => (
+              <PhoneNo key={index} number={phoneNo} index={index}/>
+            ))}
           </View>
         </ScrollView>
       </SafeAreaView>
