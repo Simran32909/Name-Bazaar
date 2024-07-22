@@ -35,7 +35,7 @@ const NameTile = ({nameData, name}) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: 'white',

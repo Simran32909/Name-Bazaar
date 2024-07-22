@@ -144,7 +144,7 @@ export default RakshiCalculationScreen;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     flex: 1,
     // alignItems: 'center',
     justifyContent: 'center',

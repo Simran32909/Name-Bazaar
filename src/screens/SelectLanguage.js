@@ -25,7 +25,7 @@ export default function SelectLanguage({route}) {
         size={32}
         weight={'bold'}
         textAlignment={'center'}
-        fontColor={'#138ae8'}
+        fontColor={'#ed7d31'}
         fontFamily={'cursive'}
       />
       <View style={styles.logo}>
@@ -56,7 +56,7 @@ export default function SelectLanguage({route}) {
           changeLang(LANGUAGES.HINDI.key);
           console.log('selected hindi');
         }}
-        textColor="#2196F3"
+        textColor="#ed7d31"
         btnColor="white"
         style={styles.button}
         textSize={20}
@@ -68,7 +68,7 @@ export default function SelectLanguage({route}) {
           changeLang(LANGUAGES.ENGLISH.key);
           console.log('selected english');
         }}
-        textColor="#2196F3"
+        textColor="#ed7d31"
         btnColor="white"
         style={styles.button}
         textSize={20}
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   logo: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     paddingHorizontal: horizontalScale(60),
     // width: '90%',
     paddingVertical: 10,
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '50%',
-    borderColor: '#2196F3',
+    borderColor: '#ed7d31',
     borderWidth: 1,
   },
 });

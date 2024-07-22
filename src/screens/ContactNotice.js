@@ -23,6 +23,7 @@ export default function ContactNotice() {
       : LANGUAGES.HINDI.label;
 
   useEffect(() => {
+    // console.log("data in contextnotice: ",data);
     if (Object.keys(data).length != 0) setDataLang(data[language]);
   }, [data, language]);
 
@@ -53,21 +54,21 @@ export default function ContactNotice() {
           <CustomText text={t('For more info')} size={20} />
           {/* <CustomText text={t('Paid Services')} /> */}
           {Object.keys(data).length != 0 && (
-            <View style={styles.whtsapDiv}>
-              <PhoneNo number={data['Phone Nos'][0]} />
-              <PhoneNo number={data['Phone Nos'][1]} />
-            </View>
+            data.length != 0 &&
+              data['Phone Nos'].map((phoneNo, index) => (
+                <PhoneNo key={index} number={phoneNo} index={index}/>
+              ))
           )}
           <CustomText
             text={dataLang.blueheading1}
-            fontColor={'#2196F3'}
+            fontColor={'#ed7d31'}
             size={25}
             weight={'700'}
             fontStyle={'italic'}
           />
           <CustomText
             text={dataLang.blueheading2}
-            fontColor={'#2196F3'}
+            fontColor={'#ed7d31'}
             size={28}
             weight={'bold'}
             fontStyle={'italic'}
@@ -76,7 +77,7 @@ export default function ContactNotice() {
           <View style={styles.points}>
             <CustomText
               text={dataLang.blueheading3}
-              fontColor={'#2196F3'}
+              fontColor={'#ed7d31'}
               size={20}
               weight={'bold'}
             />
@@ -89,8 +90,8 @@ export default function ContactNotice() {
           <CustomText text={dataLang.para3} size={20} />
           <View style={styles.whtsapDiv}>
             {data.length != 0 &&
-              Object.values(data['Phone Nos']).map((phoneNo, index) => (
-                <PhoneNo key={index} number={phoneNo} />
+              data['Phone Nos'].map((phoneNo, index) => (
+                <PhoneNo key={index} number={phoneNo} index={index}/>
               ))}
           </View>
           <CustomText text={t('Destiny in your hands')} size={20} />

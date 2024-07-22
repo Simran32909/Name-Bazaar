@@ -7,6 +7,7 @@ import {useTranslation} from 'react-i18next';
 import {Linking, Share} from 'react-native';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 export default function CustomDrawerContent(props) {
   const {t} = useTranslation();
@@ -14,6 +15,13 @@ export default function CustomDrawerContent(props) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
+      <DrawerItem
+        label={t('Feedback')}
+        icon={({size, color}) => (
+          <Feather name="message-square" color={color} size={size} />
+        )}
+        onPress={() => Linking.openURL('https://forms.gle/wRrz47QAF9YPiiy19')}
+      />
       <DrawerItem
         label={t('Privacy Policy')}
         icon={({size, color}) => (

@@ -48,7 +48,7 @@ export default function ChangeLangModal({isVisible, setVisibility}) {
               changeLang(LANGUAGES.HINDI.key);
               console.log('selected hindi');
             }}
-            textColor="#2196F3"
+            textColor="#ed7d31"
             btnColor="white"
             style={styles.button}
             textSize={20}
@@ -60,7 +60,7 @@ export default function ChangeLangModal({isVisible, setVisibility}) {
               changeLang(LANGUAGES.ENGLISH.key);
               console.log('selected english');
             }}
-            textColor="#2196F3"
+            textColor="#ed7d31"
             btnColor="white"
             style={styles.button}
             textSize={20}
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   logo: {
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 10,
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '50%',
-    borderColor: '#2196F3',
+    borderColor: '#ed7d31',
     borderWidth: 1,
   },
 });

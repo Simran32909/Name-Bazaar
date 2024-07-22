@@ -31,7 +31,14 @@ export default function AlphabetTile({text, data}) {
         })
       }>
       <View style={styles.container}>
-        <CustomText text={text} size={40} fontColor="white" />
+        <CustomText
+          text={text}
+          size={46}
+          fontColor="white"
+          fontFamily={'cursive'}
+          // fontStyle={'italic'}
+          weight={'bold'}
+        />
       </View>
     </TouchableWithoutFeedback>
   );
@@ -40,7 +47,7 @@ export default function AlphabetTile({text, data}) {
 const styles = StyleSheet.create({
   container: {
     width: '50%',
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     // backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',

@@ -10,8 +10,11 @@ import whatsapp from '../assets/whatsapp.png';
 import star from '../assets/star.png';
 import family from '../assets/family.png';
 import name from '../assets/name.png';
-import namaste from '../assets/namaste.png';
+import namaste from '../assets/woman.png';
 import daily_updates from '../assets/daily_updates.png';
+import slogan from '../assets/slogan.png';
+import pets from '../assets/pets.png';
+import nickname from '../assets/nickname.png'
 
 export default {
   boy,
@@ -28,4 +31,7 @@ export default {
   name,
   namaste,
   daily_updates,
+  slogan,
+  pets,
+  nickname
 };

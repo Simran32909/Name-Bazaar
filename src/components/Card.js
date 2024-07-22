@@ -1,4 +1,4 @@
-import {View, StyleSheet, Image, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, Image, Pressable} from 'react-native';
 import React from 'react';
 import CustomText from './common/CustomText';
 import {useNavigation} from '@react-navigation/native';
@@ -9,17 +9,28 @@ export default function Card({
   title,
   selection,
   toPath = NAVIGATIONS.ALPHABET_LIST.name,
+  collectionName = '',
 }) {
   const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback
+    <Pressable
       onPress={() =>
         navigation.navigate(toPath, {
           selection: selection,
+          collectionName: collectionName,
         })
       }
-      style={styles.container}>
-      <View style={styles.cardContainer}>
+      style={
+        imgSrc
+          ? {
+              flexDirection: 'row',
+              alignItems: 'center',
+              gap: 15,
+              ...styles.container,
+            }
+          : styles.container
+      }>
+      {imgSrc && (
         <Image
           source={imgSrc}
           style={{
@@ -27,28 +38,35 @@ export default function Card({
             height: 65,
           }}
         />
-        <CustomText
-          text={title}
-          size={20}
-          fontColor="white"
-          customStyle={{flex: 1, flexWrap: 'wrap'}}
-        />
-      </View>
-    </TouchableWithoutFeedback>
+      )}
+      <CustomText
+        text={title}
+        size={20}
+        fontColor="white"
+        customStyle={{flex: 1, flexWrap: 'wrap',fontWeight:'bold'}}
+      />
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  cardContainer: {
-    backgroundColor: '#2196F3',
-    flexDirection: 'row',
+  container: {
+    backgroundColor: '#ed7d31',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: 'grey',
     borderRadius: 7,
     paddingVertical: 7,
     paddingHorizontal: 10,
-    alignItems: 'center',
-    gap: 15,
   },
+  // cardContainer: {
+  //   backgroundColor: '#ed7d31',
+  //   flexDirection: 'row',
+  //   borderWidth: StyleSheet.hairlineWidth,
+  //   borderColor: 'grey',
+  //   borderRadius: 7,
+  //   paddingVertical: 7,
+  //   paddingHorizontal: 10,
+  //   alignItems: 'center',
+  //   gap: 15,
+  // },
 });

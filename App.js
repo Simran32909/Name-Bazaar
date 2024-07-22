@@ -17,6 +17,11 @@ import ContactNotice from './src/screens/ContactNotice';
 import NakstrasScreen from './src/screens/NakstrasScreen';
 import DailyUpdates from './src/screens/DailyUpdates';
 import RakshiCalculationScreen from './src/screens/RakshiCalculationScreen';
+import MottoForEverything from './src/screens/MottoForEverything';
+import PetName from './src/screens/PetName';
+import MottoScreen from './src/screens/MottoScreen';
+import CommonScreen from './src/screens/CommonScreen';
+import NickName from './src/screens/NickName';
 
 const Stack = createStackNavigator();
 
@@ -31,7 +36,7 @@ function App() {
       else setLang(false);
       setTimeout(() => {
         setLoading(false);
-      }, 1500);
+      }, 1800);
     }
     getVal();
   }, []);
@@ -49,9 +54,12 @@ function App() {
           headerTitle: t('Name Bazaar'),
           headerTitleAlign: 'center',
           headerTintColor: 'white',
-          headerStyle: {backgroundColor: '#2196F3'},
+          headerStyle: {backgroundColor: '#ed7d31', height: 60},
           headerTitleStyle: {
             fontStyle: 'italic',
+            fontWeight: 'bold',
+            fontFamily: 'cursive',
+            fontSize: 32,
           },
         }}>
         {loading ? (
@@ -117,6 +125,31 @@ function App() {
             <Stack.Screen
               name={NAVIGATIONS.RASHI_CALCULATION.name}
               component={RakshiCalculationScreen}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.MOTTO_FOR_EVERYTHING.name}
+              component={MottoForEverything}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.PET_NAME.name}
+              component={PetName}
+              options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.MOTTO_SCREEN.name}
+              component={MottoScreen}
+              // options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.COMMON_SCREEN.name}
+              component={CommonScreen}
+              // options={{headerRight: () => <ChangeLangIcon />}}
+            />
+            <Stack.Screen
+              name={NAVIGATIONS.NICK_NAME.name}
+              component={NickName}
               options={{headerRight: () => <ChangeLangIcon />}}
             />
           </Stack.Group>

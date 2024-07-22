@@ -68,7 +68,7 @@ export default function NameMeaning({route}) {
                         key={index}
                         text={`${index + 1}: ${item.name}`}
                         textSize={28}
-                        textColor={'white'}
+                        textColor={item.link ? 'blue' : 'white'}
                         handlePress={() =>
                           item.link ? Linking.openURL(item.link) : null
                         }
@@ -77,11 +77,15 @@ export default function NameMeaning({route}) {
                 )}
               </View>
             ) : (
-              <Details
-                key={index}
-                label={processedLabel}
-                data={nameData[label]}
-              />
+              <View>
+                <Details
+                  key={index}
+                  label={processedLabel}
+                  data={nameData[label]}
+                  customStyle={{paddingBottom:20}}
+                />
+                <View style={styles.divider} />
+              </View>
             );
           })}
       </ScrollView>
@@ -92,7 +96,7 @@ export default function NameMeaning({route}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#2196F3',
+    backgroundColor: '#ed7d31',
     // justifyContent: 'center',
     gap: 20,
     // alignItems: 'center',
